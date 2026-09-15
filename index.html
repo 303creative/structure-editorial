@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#0A0A0B; }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:#E9E0D3; text-decoration:none; }
+  a:hover { color:#B89A6A; }
+  ::selection { background:#B89A6A; color:#0A0A0B; }
+  .sc-x { scrollbar-width:none; }
+  .sc-x::-webkit-scrollbar { display:none; }
+  input { font-family:inherit; }
+</style>
+</helmet>
+
+<div style="max-width:480px;margin:0 auto;background:#0A0A0B;color:#E9E0D3;font-family:'Instrument Sans',system-ui,sans-serif">
+
+  <header style="position:sticky;top:0;z-index:40;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:rgba(10,10,11,0.92);border-bottom:1px solid #1C1C1E;backdrop-filter:blur(14px)">
+    <a href="#top" style="display:flex;align-items:center;gap:10px">
+      <span style="width:34px;height:38px;overflow:hidden;display:block"><img src="assets/logo.png" alt="" aria-hidden="true" style="width:64px;margin:-2px 0 0 -15px;display:block;filter:brightness(1.6) contrast(1.05)" /></span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.26em;color:#E9E0D3">STRUCTURE</span>
+    </a>
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:46px;height:46px;margin-right:-12px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;background:none;border:0;cursor:pointer;padding:0">
+      <span style="display:block;width:22px;height:1px;background:#E9E0D3"></span>
+      <span style="display:block;width:13px;height:1px;background:#B89A6A"></span>
+    </button>
+  </header>
+
+  <nav style="position:fixed;inset:0;z-index:60;max-width:480px;margin:0 auto;background:#0A0A0B;padding:22px 20px 40px;display:{{ menuDisplay }};flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:46px">
+      <span style="font-size:10px;letter-spacing:0.24em;color:#7E766B">MENU</span>
+      <button onClick="{{ toggleMenu }}" aria-label="Close" style="width:46px;height:46px;margin-right:-12px;background:none;border:0;color:#E9E0D3;font-size:22px;cursor:pointer;line-height:1">×</button>
+    </div>
+    <div style="margin-top:40px;display:flex;flex-direction:column">
+      <a href="Services.dc.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">SERVICES</a>
+      <a href="Work.dc.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">WORK</a>
+      <a href="Barbers.dc.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">BARBERS</a>
+      <a href="Journal.dc.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">JOURNAL</a>
+      <a href="#contact" onClick="{{ toggleMenu }}" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E;border-bottom:1px solid #1C1C1E;color:#B89A6A">BOOK &nbsp;→</a>
+    </div>
+    <div style="margin-top:auto;font-size:10px;letter-spacing:0.2em;color:#7E766B">WEST BRICKELL · BY APPOINTMENT</div>
+  </nav>
+
+  <section id="top" data-screen-label="Hero" style="padding:38px 20px 0">
+    <p style="margin:0;font-size:10px;letter-spacing:0.24em;color:#7E766B">MEN'S STUDIO — WEST BRICKELL, MIAMI</p>
+    <h1 style="margin:22px 0 0;font-size:clamp(40px,11.4vw,52px);line-height:1.04;letter-spacing:0.005em;font-weight:500;color:#E9E0D3;text-transform:uppercase">{{ heroLine1 }}<br />{{ heroLine2 }}</h1>
+    <p style="margin:20px 0 0;max-width:310px;font-size:15px;line-height:1.6;color:#8C8378">{{ heroSub }}</p>
+    <div style="margin-top:28px;aspect-ratio:4/5;overflow:hidden">
+      <img src="assets/photo-1.jpg" alt="Sección y corte a tijera en Structure" style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:10px;letter-spacing:0.2em;color:#7E766B">
+      <span>GUIDED / SCISSORS / FADE</span><span style="color:#B89A6A">EST. MIAMI</span>
+    </div>
+    <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;margin-top:26px;height:58px;padding:0 24px;background:#E9E0D3;color:#0A0A0B;font-size:11px;font-weight:600;letter-spacing:0.2em" style-hover="background:#B89A6A">
+      <span>BOOK A SESSION</span><span>→</span>
+    </a>
+  </section>
+
+  <section data-screen-label="Statement" style="margin-top:78px;padding:0 20px">
+    <div style="height:1px;background:#1C1C1E"></div>
+    <p style="margin:24px 0 0;font-size:10px;letter-spacing:0.24em;color:#7E766B">APPROACH</p>
+    <div style="margin-top:20px;display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:end">
+      <h2 style="margin:0;font-size:clamp(28px,8.2vw,36px);line-height:1.06;letter-spacing:0.005em;font-weight:500;text-transform:uppercase;color:#E9E0D3">Your hair is<br />architecture</h2>
+      <p style="margin:0;font-size:12px;line-height:1.65;color:#8C8378">Every cut starts with how your hair actually behaves — density, growth, movement. We design the shape around that, not around a photograph.</p>
+    </div>
+  </section>
+
+  <section id="work" data-screen-label="Portfolio" style="margin-top:72px">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px">
+      <h2 style="margin:0;font-size:22px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#E9E0D3">Portfolio</h2>
+      <div style="display:flex;gap:16px">
+        <button onClick="{{ scrollPrev }}" aria-label="Anterior" style="width:44px;height:44px;background:none;border:0;color:#8C8378;font-size:17px;cursor:pointer" style-hover="color:#E9E0D3">←</button>
+        <button onClick="{{ scrollNext }}" aria-label="Siguiente" style="width:44px;height:44px;background:none;border:0;color:#8C8378;font-size:17px;cursor:pointer" style-hover="color:#E9E0D3">→</button>
+      </div>
+    </div>
+    <div ref="{{ railRef }}" class="sc-x" style="margin-top:18px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 4px">
+      <article style="flex:0 0 78%;scroll-snap-align:start">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px">
+          <span style="font-size:10px;letter-spacing:0.18em;color:#E9E0D3">ALL-SCISSOR CUT</span>
+          <span style="font-size:10px;letter-spacing:0.16em;color:#7E766B;white-space:nowrap">60 MIN</span>
+        </div>
+        <div style="aspect-ratio:4/5;overflow:hidden"><img src="assets/photo-2.jpg" alt="All-Scissor Cut" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </article>
+      <article style="flex:0 0 78%;scroll-snap-align:start">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px">
+          <span style="font-size:10px;letter-spacing:0.18em;color:#E9E0D3">GUIDED HAIRCUT</span>
+          <span style="font-size:10px;letter-spacing:0.16em;color:#7E766B;white-space:nowrap">60 MIN</span>
+        </div>
+        <div style="aspect-ratio:4/5;overflow:hidden"><img src="assets/photo-3.jpg" alt="Guided Haircut" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </article>
+      <article style="flex:0 0 78%;scroll-snap-align:start">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px">
+          <span style="font-size:10px;letter-spacing:0.18em;color:#E9E0D3">CLASSIC CUT</span>
+          <span style="font-size:10px;letter-spacing:0.16em;color:#7E766B;white-space:nowrap">30–40 MIN</span>
+        </div>
+        <div style="aspect-ratio:4/5;overflow:hidden"><img src="assets/photo-4.jpg" alt="Classic Cut" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </article>
+      <article style="flex:0 0 78%;scroll-snap-align:start">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px">
+          <span style="font-size:10px;letter-spacing:0.18em;color:#E9E0D3">STRUCTURE EXPERIENCE</span>
+          <span style="font-size:10px;letter-spacing:0.16em;color:#7E766B;white-space:nowrap">90 MIN</span>
+        </div>
+        <div style="aspect-ratio:4/5;overflow:hidden"><img src="assets/photo-5.jpg" alt="Structure Experience" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </article>
+      <div style="flex:0 0 8px"></div>
+    </div>
+    <a href="Work.dc.html" style="display:flex;align-items:center;gap:10px;margin:18px 20px 0;min-height:44px;font-size:10px;letter-spacing:0.2em;color:#B89A6A">SEE ALL WORK <span>→</span></a>
+  </section>
+
+  <section id="method" data-screen-label="Method" style="margin-top:72px;padding:0 20px">
+    <div style="height:1px;background:#1C1C1E"></div>
+    <p style="margin:24px 0 0;font-size:10px;letter-spacing:0.24em;color:#7E766B">METHOD</p>
+    <h2 style="margin:16px 0 0;font-size:clamp(30px,8.6vw,38px);line-height:1.08;font-weight:500;text-transform:uppercase;color:#E9E0D3">Not a template.<br />A system.</h2>
+    <div style="margin-top:32px;display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:20px 0;border-top:1px solid #1C1C1E">
+        <span style="font-size:11px;letter-spacing:0.14em;color:#B89A6A">01</span>
+        <div><h3 style="margin:0;font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Analyze</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#8C8378">Density, growth pattern and how the hair falls when you leave it alone.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:20px 0;border-top:1px solid #1C1C1E">
+        <span style="font-size:11px;letter-spacing:0.14em;color:#B89A6A">02</span>
+        <div><h3 style="margin:0;font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Define</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#8C8378">We agree on the shape and the length it will hold in four weeks.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:20px 0;border-top:1px solid #1C1C1E">
+        <span style="font-size:11px;letter-spacing:0.14em;color:#B89A6A">03</span>
+        <div><h3 style="margin:0;font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Execute</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#8C8378">Scissor work and fades built with control, section by section.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:20px 0;border-top:1px solid #1C1C1E;border-bottom:1px solid #1C1C1E">
+        <span style="font-size:11px;letter-spacing:0.14em;color:#B89A6A">04</span>
+        <div><h3 style="margin:0;font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Maintain</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#8C8378">A routine and a return window, so the shape stays intentional.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:28px;aspect-ratio:4/5;overflow:hidden"><img src="assets/photo-6.jpg" alt="Trabajo de sección y peine" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+  </section>
+
+  <section id="barbers" data-screen-label="Barbers" style="margin-top:72px;padding:0 20px">
+    <div style="height:1px;background:#1C1C1E"></div>
+    <p style="margin:24px 0 0;font-size:10px;letter-spacing:0.24em;color:#7E766B">BARBERS</p>
+    <h2 style="margin:16px 0 0;font-size:clamp(30px,8.6vw,38px);line-height:1.08;font-weight:500;text-transform:uppercase">Two hands.<br />One method.</h2>
+    <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <div style="aspect-ratio:1/1;overflow:hidden"><img src="assets/barber-bri.jpg" alt="Bri" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <p style="margin:10px 0 0;font-size:14px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase">Bri</p>
+        <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.16em;color:#7E766B">SCISSOR / GUIDED</p>
+      </div>
+      <div>
+        <div style="aspect-ratio:1/1;overflow:hidden"><img src="assets/barber-alex.jpg" alt="Alex" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <p style="margin:10px 0 0;font-size:14px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase">Alex</p>
+        <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.16em;color:#7E766B">FADES / TAPERS</p>
+      </div>
+    </div>
+    <a href="Barbers.dc.html" style="display:flex;align-items:center;gap:10px;margin-top:18px;min-height:44px;font-size:10px;letter-spacing:0.2em;color:#B89A6A">MEET THE BARBERS <span>→</span></a>
+  </section>
+
+  <section id="contact" data-screen-label="Contact" style="margin-top:80px;padding:0 20px">
+    <div style="height:1px;background:#1C1C1E"></div>
+    <p style="margin:26px 0 0;font-size:10px;letter-spacing:0.24em;color:#7E766B">BOOKING</p>
+    <div style="margin-top:16px;display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:end">
+      <h2 style="margin:0;font-size:clamp(32px,9.4vw,42px);line-height:1.02;font-weight:500;text-transform:uppercase;color:#E9E0D3">Let's bring<br />your image<br />into focus</h2>
+      <p style="margin:0;font-size:12px;line-height:1.65;color:#8C8378">Leave your name and phone and we call you back, or book directly on Squire.</p>
+    </div>
+    <div style="margin-top:30px;display:flex;flex-direction:column;gap:8px">
+      <input type="text" placeholder="YOUR NAME" style="height:52px;background:none;border:0;border-bottom:1px solid #2A2A2C;color:#E9E0D3;font-size:12px;letter-spacing:0.18em;outline:none" />
+      <input type="tel" placeholder="YOUR PHONE" style="height:52px;background:none;border:0;border-bottom:1px solid #2A2A2C;color:#E9E0D3;font-size:12px;letter-spacing:0.18em;outline:none" />
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:18px">
+      <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" aria-label="Book on Squire" style="width:52px;height:52px;border:1px solid #2A2A2C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#E9E0D3;font-size:17px" style-hover="border-color:#B89A6A;color:#B89A6A">→</a>
+    </div>
+  </section>
+
+  <section data-screen-label="Reviews" style="margin-top:72px">
+    <h2 style="margin:0;padding:0 20px;font-size:22px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">Clients about<br />our work</h2>
+    <div class="sc-x" style="margin-top:20px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 4px">
+      <blockquote style="flex:0 0 82%;scroll-snap-align:start;margin:0;border:1px solid #1C1C1E;padding:24px 20px 26px">
+        <span style="display:block;font-family:'EB Garamond',serif;font-size:56px;line-height:0.5;color:#B89A6A">“</span>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.6;color:#E9E0D3">[Reseña real pendiente — pega aquí el texto tal cual lo escribió el cliente.]</p>
+        <footer style="margin-top:18px;font-size:10px;letter-spacing:0.18em;color:#7E766B">FIRST NAME<br /><span style="color:#B89A6A">GOOGLE</span></footer>
+      </blockquote>
+      <blockquote style="flex:0 0 82%;scroll-snap-align:start;margin:0;border:1px solid #1C1C1E;padding:24px 20px 26px">
+        <span style="display:block;font-family:'EB Garamond',serif;font-size:56px;line-height:0.5;color:#B89A6A">“</span>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.6;color:#E9E0D3">[Reseña real pendiente — pega aquí el texto tal cual lo escribió el cliente.]</p>
+        <footer style="margin-top:18px;font-size:10px;letter-spacing:0.18em;color:#7E766B">FIRST NAME<br /><span style="color:#B89A6A">SQUIRE</span></footer>
+      </blockquote>
+      <div style="flex:0 0 8px"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Location" style="margin-top:76px;padding:0 20px">
+    <p style="margin:0;font-size:11px;line-height:1.7;letter-spacing:0.14em;text-transform:uppercase;color:#8C8378">We believe in building the shape with you, not for you. Every cut is a reflection of how your hair behaves and how you want to be seen.</p>
+    <div style="margin-top:24px;aspect-ratio:16/11;overflow:hidden"><img src="assets/photo-7.jpg" alt="Interior del estudio" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+    <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:10px;letter-spacing:0.18em;color:#7E766B">
+      <span>1110 SW 2ND AVE, STE 4</span><span style="color:#B89A6A">MIAMI, FL</span>
+    </div>
+  </section>
+
+  <footer style="margin-top:72px;padding:32px 20px 132px;border-top:1px solid #1C1C1E">
+    <img src="assets/logo.png" alt="Structure Men's Studio" style="width:168px;height:auto;display:block;margin-left:-8px;filter:brightness(1.6) contrast(1.05)" />
+    <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:26px 14px">
+      <div>
+        <p style="margin:0 0 10px;font-size:10px;letter-spacing:0.2em;color:#7E766B">VISIT</p>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:#E9E0D3">1110 SW 2nd Ave, Ste 4<br />Miami, FL 33130</p>
+      </div>
+      <div>
+        <p style="margin:0 0 10px;font-size:10px;letter-spacing:0.2em;color:#7E766B">HOURS</p>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:#E9E0D3">By appointment</p>
+      </div>
+      <div>
+        <p style="margin:0 0 10px;font-size:10px;letter-spacing:0.2em;color:#7E766B">CONTACT</p>
+        <p style="margin:0;font-size:13px;line-height:1.7"><a href="tel:+13475004037" style="color:#E9E0D3">+1 (347) 500-4037</a><br /><a href="https://instagram.com/structuremensstudio" target="_blank" rel="noopener" style="color:#E9E0D3">@structuremensstudio</a></p>
+      </div>
+      <div>
+        <p style="margin:0 0 10px;font-size:10px;letter-spacing:0.2em;color:#7E766B">PAGES</p>
+        <p style="margin:0;font-size:13px;line-height:1.7"><a href="Services.dc.html" style="color:#E9E0D3">Services</a><br /><a href="Work.dc.html" style="color:#E9E0D3">Work</a><br /><a href="Barbers.dc.html" style="color:#E9E0D3">Barbers</a><br /><a href="Journal.dc.html" style="color:#E9E0D3">Journal</a></p>
+      </div>
+    </div>
+    <div style="margin-top:34px;display:flex;justify-content:space-between;font-size:10px;letter-spacing:0.18em;color:#8C8378">
+      <span>STRUCTURE © 2026</span><span>POLICIES</span>
+    </div>
+  </footer>
+
+  <div style="position:fixed;bottom:74px;right:18px;z-index:55;max-width:480px;margin:0 auto;display:flex;justify-content:flex-end;pointer-events:none;left:0">
+    <button onClick="{{ toggleChat }}" aria-label="Chat con Structure" style="pointer-events:auto;width:56px;height:56px;border-radius:50%;border:1px solid #2A2A2C;background:#E9E0D3;color:#0A0A0B;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,0.55)" style-hover="background:#B89A6A">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"></path><path d="M8.5 10.5h7"></path></svg>
+    </button>
+  </div>
+
+  <div style="position:fixed;inset:0;z-index:70;max-width:480px;margin:0 auto;display:{{ chatDisplay }};flex-direction:column;justify-content:flex-end;background:rgba(6,6,7,0.62)">
+    <div onClick="{{ toggleChat }}" style="flex:1"></div>
+    <div style="background:#0E0E10;border-top:1px solid #2A2A2C;padding:18px 20px 22px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#B89A6A;display:block"></span>
+          <span style="font-size:10px;letter-spacing:0.22em;color:#E9E0D3">STRUCTURE CONCIERGE</span>
+        </div>
+        <button onClick="{{ toggleChat }}" aria-label="Cerrar" style="width:44px;height:44px;margin-right:-12px;background:none;border:0;color:#8C8378;font-size:20px;cursor:pointer;line-height:1">×</button>
+      </div>
+      <p style="margin:16px 0 0;font-size:19px;line-height:1.3;font-weight:500;text-transform:uppercase;letter-spacing:0.01em;color:#E9E0D3">How can we<br />help you today?</p>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
+        <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">BOOK AN APPOINTMENT <span style="color:#B89A6A">→</span></a>
+        <a href="Services.dc.html" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">WHICH SERVICE DO I NEED? <span style="color:#B89A6A">→</span></a>
+        <a href="tel:+13475004037" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">CALL THE STUDIO <span style="color:#B89A6A">→</span></a>
+      </div>
+      <div style="margin-top:16px;display:flex;align-items:center;gap:12px;border-top:1px solid #1C1C1E;padding-top:14px">
+        <input type="text" placeholder="WRITE A MESSAGE" style="flex:1;height:46px;background:none;border:0;color:#E9E0D3;font-size:11px;letter-spacing:0.18em;outline:none" />
+        <a href="https://instagram.com/structuremensstudio" target="_blank" rel="noopener" aria-label="Enviar por Instagram" style="width:46px;height:46px;border:1px solid #2A2A2C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#E9E0D3;font-size:15px" style-hover="border-color:#B89A6A;color:#B89A6A">→</a>
+      </div>
+      <p style="margin:12px 0 0;font-size:9px;letter-spacing:0.16em;color:#7E766B">REPLIES VIA INSTAGRAM DM · MON–SAT</p>
+    </div>
+  </div>
+
+  <nav style="position:fixed;bottom:0;left:0;right:0;z-index:50;max-width:480px;margin:0 auto;height:66px;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;background:rgba(14,14,16,0.96);border-top:1px solid #1C1C1E;backdrop-filter:blur(16px)">
+    <a href="#top" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#E9E0D3">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4v-9Z"></path></svg>HOME
+    </a>
+    <a href="Services.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#8C8378">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5h14M5 12h14M5 19h9"></path></svg>SERVICES
+    </a>
+    <a href="Work.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#8C8378">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="4" width="7" height="7"></rect><rect x="13" y="4" width="7" height="7"></rect><rect x="4" y="13" width="7" height="7"></rect><rect x="13" y="13" width="7" height="7"></rect></svg>WORK
+    </a>
+    <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#B89A6A">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="5" width="16" height="15"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>BOOK
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420},&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;'A'|'B'&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;stickyBook&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conversion&quot;}}">
+class Component extends DCLogic {
+  state = { y: 0, menuOpen: false, chatOpen: false };
+  componentDidMount() {
+    this.rail = null;
+    this.onScroll = () => this.setState({ y: window.scrollY });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  nudge(dir) {
+    const el = this.rail;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' });
+  }
+  renderVals() {
+    const showBar = (this.props.stickyBook ?? true) && this.state.y > 540 && !this.state.menuOpen;
+    const variant = this.props.heroVariant ?? 'A';
+    return {
+      menuDisplay: this.state.menuOpen ? 'flex' : 'none',
+      chatDisplay: this.state.chatOpen ? 'flex' : 'none',
+      toggleChat: () => this.setState(s => ({ chatOpen: !s.chatOpen })),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      barTransform: showBar ? 'translateY(0)' : 'translateY(110%)',
+      railRef: el => { this.rail = el; },
+      scrollPrev: () => this.nudge(-1),
+      scrollNext: () => this.nudge(1),
+      heroLine1: variant === 'B' ? 'Shape.' : 'A cut,',
+      heroLine2: variant === 'B' ? 'Movement. Control.' : 'built around you',
+      heroSub: variant === 'B'
+        ? 'Haircuts designed around how your hair actually behaves.'
+        : 'Scissor work, fades and guided consultation in West Brickell.'
+    };
+  }
+}
+</script>
+</body>
+</html>
