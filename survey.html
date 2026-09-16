@@ -1,0 +1,249 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Structure Men's Studio — Client Experience</title>
+<link rel="canonical" href="https://structuremenstudio.com/survey.html">
+<style>
+@font-face{font-family:'Cormorant';src:url('assets/fonts/Cormorant-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Cormorant';src:url('assets/fonts/Cormorant-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Cormorant';src:url('assets/fonts/Cormorant-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Cormorant';src:url('assets/fonts/Cormorant-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#161316;color:#EDE9E0;font-family:Cormorant,Georgia,serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:560px;margin:0 auto;padding:26px 20px 70px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.brand{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#9A8F7E}
+.lang{display:flex;gap:4px}
+.lang button{background:none;border:1px solid #33302c;color:#8A8578;font-family:inherit;font-size:12px;letter-spacing:.12em;
+ padding:5px 11px;cursor:pointer;text-transform:uppercase;transition:.2s}
+.lang button.on{background:#9A8F7E;color:#161316;border-color:#9A8F7E}
+h1{font-size:clamp(28px,7vw,40px);line-height:1.08;margin:16px 0 6px;color:#fff}
+.sub{color:#b8b3a8;font-size:16px;margin-bottom:6px}
+.time{color:#66645c;font-size:13px;letter-spacing:.06em}
+.prog{height:2px;background:#2a2724;margin:18px 0 4px;position:relative}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:#9A8F7E;width:0;transition:width .4s}
+.q{margin-top:26px}
+.q .lbl{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#9A8F7E;margin-bottom:9px}
+.q .qt{font-size:20px;color:#EDE9E0;margin-bottom:12px;line-height:1.3}
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opt{border:1px solid #33302c;background:#1b181b;color:#d7d3c9;font-family:inherit;font-size:15px;
+ padding:11px 16px;cursor:pointer;transition:.18s;line-height:1.2;text-align:left}
+.opt:hover{border-color:#9A8F7E}
+.opt.sel{background:#9A8F7E;color:#161316;border-color:#9A8F7E;font-weight:600}
+.starpick{display:flex;gap:8px;font-size:38px;color:#3f3b34;cursor:pointer;user-select:none}
+.starpick span.on{color:#9A8F7E}
+textarea{width:100%;background:#0f0d0f;border:1px solid #33302c;color:#EDE9E0;padding:13px 14px;
+ font-family:inherit;font-size:16px;min-height:96px;resize:vertical}
+.hint{color:#66645c;font-size:13px;margin-top:6px}
+.send{display:block;width:100%;margin-top:28px;background:#9A8F7E;color:#161316;font-family:inherit;font-weight:700;
+ text-transform:uppercase;letter-spacing:.18em;font-size:14px;padding:17px;border:none;cursor:pointer;transition:.2s}
+.send:disabled{opacity:.4;cursor:not-allowed}
+.legal{color:#66645c;font-size:12.5px;margin-top:14px;line-height:1.5}
+/* thank you */
+.thanks{display:none;text-align:center;padding:40px 6px}
+.thanks.show{display:block}
+.thanks .big{font-size:clamp(30px,8vw,46px);color:#fff;line-height:1.1;margin-bottom:10px}
+.thanks p{color:#b8b3a8;font-size:17px;margin:0 auto 26px;max-width:400px}
+.tbtn{display:block;max-width:360px;margin:12px auto;padding:16px;font-size:14px;letter-spacing:.16em;
+ text-transform:uppercase;text-decoration:none;transition:.2s;font-family:inherit}
+.tbtn.gold{background:#9A8F7E;color:#161316;font-weight:700}
+.tbtn.ghost{border:1px solid #33302c;color:#EDE9E0}
+.foot{margin-top:44px;padding-top:14px;border-top:1px solid #2a2724;color:#66645c;font-size:12px;text-align:center}
+.err{color:#c98b7e;font-size:14px;margin-top:12px;display:none}
+</style></head>
+<body><div class="w">
+
+<div id="form">
+  <div class="top">
+    <span class="brand">Structure Men's Studio</span>
+    <div class="lang"><button data-l="en" class="on">EN</button><button data-l="es">ES</button></div>
+  </div>
+  <h1 id="h1">How was your visit?</h1>
+  <div class="sub" id="sub">60 seconds. It helps us take care of you better.</div>
+  <div class="prog"><i id="pbar"></i></div>
+
+  <div class="q" data-k="first_visit">
+    <div class="lbl" data-t="q1l">Visit</div>
+    <div class="qt" data-t="q1">Is this your first visit to Structure?</div>
+    <div class="opts"></div>
+  </div>
+  <div class="q" data-k="barber">
+    <div class="lbl" data-t="q2l">Your barber</div>
+    <div class="qt" data-t="q2">Who did your service today?</div>
+    <div class="opts"></div>
+  </div>
+  <div class="q" data-k="discovery">
+    <div class="lbl" data-t="q3l">Discovery</div>
+    <div class="qt" data-t="q3">Where did you first hear about Structure?</div>
+    <div class="opts"></div>
+  </div>
+  <div class="q" data-k="influence">
+    <div class="lbl" data-t="q4l">Booking</div>
+    <div class="qt" data-t="q4">What made you book?</div>
+    <div class="opts"></div>
+  </div>
+  <div class="q" data-k="choice">
+    <div class="lbl" data-t="q5l">Choice</div>
+    <div class="qt" data-t="q5">How did you choose your barber?</div>
+    <div class="opts"></div>
+  </div>
+  <div class="q" data-k="rating">
+    <div class="lbl" data-t="q6l">Experience</div>
+    <div class="qt" data-t="q6">How would you rate your experience?</div>
+    <div class="starpick" id="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+  </div>
+  <div class="q" data-k="comment">
+    <div class="lbl" data-t="q7l">In your words</div>
+    <div class="qt" data-t="q7">What was the best part — or what would you improve?</div>
+    <textarea id="comment" maxlength="600"></textarea>
+    <div class="hint" data-t="q7h">Optional.</div>
+  </div>
+  <div class="q" data-k="consent">
+    <div class="lbl" data-t="q8l">Testimonial</div>
+    <div class="qt" data-t="q8">May we feature your comment (with your first name) on our site or social?</div>
+    <div class="opts"></div>
+  </div>
+
+  <button class="send" id="send" data-t="send">Send</button>
+  <div class="err" id="err"></div>
+  <div class="legal" data-t="legal">Your answers are private and used only to improve the studio. Comments are published only with your permission, and only after a quick check.</div>
+</div>
+
+<div class="thanks" id="thanks">
+  <div class="big" data-t="tyTitle">Thank you.</div>
+  <p data-t="tyBody">Your feedback goes straight to the studio. If you have a moment, a public review helps other men find us.</p>
+  <a class="tbtn gold" id="gbtn" href="#" target="_blank" rel="noopener" data-t="tyGoogle">Share on Google</a>
+  <a class="tbtn ghost" id="bbtn" href="#" target="_blank" rel="noopener" data-t="tyBook">Book your next visit</a>
+</div>
+
+<div class="foot">Structure Men's Studio · West Brickell, Miami · The303 Creative</div>
+</div>
+
+<script>
+var WEBHOOK="https://the303photography.app.n8n.cloud/webhook/structure-survey";
+var BOOK="https://web.getsquire.com/brands/bri-barber-331";
+var GOOGLE="https://www.google.com/maps/search/?api=1&query=Structure+Men%27s+Studio+Miami"; // TODO: replace with exact "write a review" link
+
+var T={
+ en:{h1:"How was your visit?",sub:"60 seconds. It helps us take care of you better.",
+  q1l:"Visit",q1:"Is this your first visit to Structure?",
+  q2l:"Your barber",q2:"Who did your service today?",
+  q3l:"Discovery",q3:"Where did you first hear about Structure?",
+  q4l:"Booking",q4:"What made you book?",
+  q5l:"Choice",q5:"How did you choose your barber?",
+  q6l:"Experience",q6:"How would you rate your experience?",
+  q7l:"In your words",q7:"What was the best part — or what would you improve?",q7h:"Optional.",
+  q8l:"Testimonial",q8:"May we feature your comment (with your first name) on our site or social?",
+  send:"Send",legal:"Your answers are private and used only to improve the studio. Comments are published only with your permission, and only after a quick check.",
+  tyTitle:"Thank you.",tyBody:"Your feedback goes straight to the studio. If you have a moment, a public review helps other men find us.",
+  tyGoogle:"Share on Google",tyBook:"Book your next visit",
+  o:{first_visit:["Yes, first time","No, I'm a regular"],
+     barber:["Bri","Alex","The studio / not sure"],
+     discovery:["Google","Instagram","A recommendation","Walked / saw the location","Squire","Other"],
+     influence:["Work I saw","Reviews","Location","A specific specialty","Availability","A recommendation"],
+     choice:["I asked for them by name","By their specialty","First one available"],
+     consent:["Yes, you may","No, keep it private"]},
+  errPick:"Please answer the highlighted questions.",errNet:"Couldn't send — check your connection and try again."},
+ es:{h1:"¿Cómo estuvo tu visita?",sub:"60 segundos. Nos ayuda a atenderte mejor.",
+  q1l:"Visita",q1:"¿Es tu primera visita a Structure?",
+  q2l:"Tu barbero",q2:"¿Quién te atendió hoy?",
+  q3l:"Cómo nos conociste",q3:"¿Dónde conociste Structure?",
+  q4l:"Reserva",q4:"¿Qué influyó en tu reserva?",
+  q5l:"Elección",q5:"¿Cómo elegiste a tu barbero?",
+  q6l:"Experiencia",q6:"¿Cómo valorarías tu experiencia?",
+  q7l:"En tus palabras",q7:"¿Qué fue lo mejor — o qué mejorarías?",q7h:"Opcional.",
+  q8l:"Testimonio",q8:"¿Podemos destacar tu comentario (con tu nombre) en la web o redes?",
+  send:"Enviar",legal:"Tus respuestas son privadas y se usan solo para mejorar el estudio. Los comentarios se publican solo con tu permiso y tras una revisión rápida.",
+  tyTitle:"Gracias.",tyBody:"Tu opinión llega directo al estudio. Si tienes un momento, una reseña pública ayuda a que otros nos encuentren.",
+  tyGoogle:"Compartir en Google",tyBook:"Reserva tu próxima visita",
+  o:{first_visit:["Sí, es mi primera vez","No, soy cliente habitual"],
+     barber:["Bri","Alex","El estudio / no estoy seguro"],
+     discovery:["Google","Instagram","Una recomendación","Pasé / vi el local","Squire","Otro"],
+     influence:["El trabajo que vi","Las reseñas","La ubicación","Una especialidad concreta","La disponibilidad","Una recomendación"],
+     choice:["Lo pedí por su nombre","Por su especialidad","El primero disponible"],
+     consent:["Sí, pueden","No, mantener privado"]},
+  errPick:"Responde las preguntas marcadas.",errNet:"No se pudo enviar — revisa tu conexión e inténtalo de nuevo."}
+};
+
+var VAL={ // canonical english values stored regardless of display language
+ first_visit:["first_visit_yes","returning"],
+ barber:["Bri","Alex","Studio"],
+ discovery:["Google","Instagram","Recommendation","Location/Walk-by","Squire","Other"],
+ influence:["Work seen","Reviews","Location","Specialty","Availability","Recommendation"],
+ choice:["By name","By specialty","First available"],
+ consent:["consent_yes","consent_no"]
+};
+
+var lang="en", answers={}, rating=0;
+var params=new URLSearchParams(location.search);
+var pb=(params.get('b')||'').toLowerCase();
+if(pb==='bri')answers.barber="Bri"; else if(pb==='alex')answers.barber="Alex"; else if(pb==='studio')answers.barber="Studio";
+var nav=(navigator.language||'en').toLowerCase(); if(nav.indexOf('es')===0)lang='es';
+
+function buildOpts(){
+ document.querySelectorAll('.q').forEach(function(q){
+  var k=q.getAttribute('data-k'); var box=q.querySelector('.opts'); if(!box)return;
+  box.innerHTML='';
+  (T[lang].o[k]||[]).forEach(function(label,i){
+   var b=document.createElement('button'); b.className='opt'; b.type='button'; b.textContent=label;
+   if(answers[k]===VAL[k][i])b.classList.add('sel');
+   b.onclick=function(){answers[k]=VAL[k][i];
+     box.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')});
+     b.classList.add('sel'); q.querySelector('.qt').style.color='#EDE9E0'; updateProg();};
+   box.appendChild(b);
+  });
+ });
+}
+function applyLang(){
+ document.documentElement.lang=lang;
+ document.getElementById('h1').textContent=T[lang].h1;
+ document.getElementById('sub').textContent=T[lang].sub;
+ document.querySelectorAll('[data-t]').forEach(function(el){var k=el.getAttribute('data-t'); if(T[lang][k]!=null)el.textContent=T[lang][k];});
+ buildOpts();
+}
+function updateProg(){
+ var need=['first_visit','barber','discovery','influence','choice','consent'];
+ var done=need.filter(function(k){return answers[k]}).length + (rating?1:0);
+ document.getElementById('pbar').style.width=Math.round(done/(need.length+1)*100)+'%';
+}
+// stars
+document.querySelectorAll('#stars span').forEach(function(s,i){
+ s.onclick=function(){rating=i+1;paint();updateProg();};
+});
+function paint(){document.querySelectorAll('#stars span').forEach(function(s,j){s.classList.toggle('on',j<rating);});}
+// lang buttons
+document.querySelectorAll('.lang button').forEach(function(b){
+ b.onclick=function(){lang=b.getAttribute('data-l');
+  document.querySelectorAll('.lang button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');applyLang();};
+});
+
+document.getElementById('send').onclick=function(){
+ var req=['first_visit','barber','discovery','influence','choice','consent'];
+ var miss=req.filter(function(k){return !answers[k]});
+ var err=document.getElementById('err');
+ if(miss.length||!rating){
+  err.textContent=T[lang].errPick; err.style.display='block';
+  miss.forEach(function(k){var q=document.querySelector('.q[data-k="'+k+'"]'); if(q)q.querySelector('.qt').style.color='#c98b7e';});
+  if(!rating)document.querySelector('.q[data-k="rating"] .qt').style.color='#c98b7e';
+  window.scrollTo({top:0,behavior:'smooth'}); return;
+ }
+ err.style.display='none';
+ var payload={
+  barber:answers.barber, first_visit:answers.first_visit, discovery:answers.discovery,
+  influence:answers.influence, choice:answers.choice, rating:rating,
+  comment:document.getElementById('comment').value.trim(), consent:answers.consent,
+  lang:lang, source:'survey_page', qr:pb||'', ts:new Date().toISOString()
+ };
+ this.disabled=true;
+ fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+ // show thank-you regardless (fire-and-forget); backend saves once live
+ document.getElementById('gbtn').href=GOOGLE;
+ document.getElementById('bbtn').href=BOOK;
+ document.getElementById('form').style.display='none';
+ document.getElementById('thanks').classList.add('show');
+ window.scrollTo({top:0,behavior:'smooth'});
+};
+
+applyLang(); updateProg();
+</script>
+</body></html>

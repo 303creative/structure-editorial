@@ -1,0 +1,31 @@
+# Structure Men's Studio — robots.txt
+User-agent: *
+Allow: /
+
+# Crawlers de IA — permitidos para visibilidad en ChatGPT, Gemini, Claude, Perplexity
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# No indexar exportaciones antiguas duplicadas (se borran con git rm en el push)
+Disallow: /Blog.dc.html
+Disallow: /Merch.dc.html
+Disallow: /Structure%20Men's%20Studio%20v1.dc.html
+Disallow: /Structure%20Men's%20Studio.dc.html
+
+Sitemap: https://structuremenstudio.com/sitemap.xml
