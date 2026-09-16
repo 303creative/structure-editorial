@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script type="text/javascript">!function(e,t){var i=e.createElement("script"),sa="setAttribute";i.src="https://widget.getsquire.com/widget.js?"+Date.now(),i[sa]("defer",""),i[sa]("type","text/javascript"),i[sa]("brand",t.brand),i[sa]("x-squire-inline-enabled",t.inline||!1),e.head.appendChild(i)}(document,{brand:"f291886d-0494-4773-9dcc-37fc3e63f483",inline:true});</script>
 </head>
 <body>
 <x-dc>
@@ -111,5 +112,62 @@
   </div>
 </div>
 </x-dc>
+<!-- RECEPCIONISTA STRUCTURE (The303) — chat Sofía -->
+<div id="rc-root"></div>
+<style>
+#rc-root{--rc-bg:#171718;--rc-accent:#B89A6A;--rc-text:#E9E0D3;--rc-mut:#8C8378;font-family:'Instrument Sans',system-ui,sans-serif}
+#rc-launch{position:fixed;left:20px;bottom:20px;z-index:2147483000;display:flex;flex-direction:row-reverse;align-items:center;gap:10px}
+#rc-hi{background:#211F1C;color:var(--rc-text);font-size:13px;padding:10px 14px;border-radius:14px;max-width:210px;box-shadow:0 10px 30px #0009;opacity:0;transform:translateY(6px);transition:.3s;pointer-events:none}
+#rc-hi.show{opacity:1;transform:translateY(0)}
+#rc-btn{width:58px;height:58px;border:none;border-radius:50%;cursor:pointer;background:linear-gradient(135deg,#B89A6A,#8f7d5f);color:#0D0D0E;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(184,154,106,.4)}
+#rc-btn.jump{animation:rcJump 1s ease 2}
+@keyframes rcJump{0%,100%{transform:translateY(0)}20%{transform:translateY(-14px)}40%{transform:translateY(0)}60%{transform:translateY(-7px)}80%{transform:translateY(0)}}
+#rc-panel{position:fixed;left:20px;bottom:90px;width:340px;max-width:calc(100vw - 40px);height:460px;max-height:70vh;background:var(--rc-bg);border:1px solid #2A2A2C;border-radius:18px;z-index:99999;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px #000b}
+#rc-panel.open{display:flex}
+#rc-head{padding:14px 16px;background:#1C1C1E;border-bottom:1px solid #2A2A2C;display:flex;align-items:center;gap:10px}
+#rc-head b{color:var(--rc-text);font-size:14px}
+#rc-head span{color:var(--rc-mut);font-size:11px;display:block}
+#rc-dot{width:9px;height:9px;border-radius:50%;background:#37d67a;flex:none}
+#rc-x{margin-left:auto;background:none;border:none;color:var(--rc-mut);font-size:18px;cursor:pointer}
+#rc-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.rc-m{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13.5px;line-height:1.45}
+.rc-bot{background:#211F1C;color:var(--rc-text);align-self:flex-start;border-bottom-left-radius:4px}
+.rc-me{background:var(--rc-accent);color:#0D0D0E;align-self:flex-end;border-bottom-right-radius:4px;font-weight:600}
+#rc-form{display:flex;gap:8px;padding:12px;border-top:1px solid #2A2A2C}
+#rc-in{flex:1;background:#0D0D0E;border:1px solid #2A2A2C;border-radius:8px;padding:10px 14px;color:var(--rc-text);font-size:16px;outline:none}
+#rc-send{background:var(--rc-accent);border:none;color:#0D0D0E;font-weight:700;border-radius:8px;padding:0 16px;cursor:pointer}
+#rc-book{display:block;text-align:center;font-size:11px;color:var(--rc-mut);padding:0 0 10px}
+#rc-book a{color:var(--rc-accent);text-decoration:underline}
+</style>
+<script>
+(function(){
+  var WEBHOOK_URL="https://the303photography.app.n8n.cloud/webhook/recepcionista-structure";
+  var WHATSAPP="https://wa.me/13475004037";
+  var SQUIRE="https://web.getsquire.com/brands/bri-barber-331";
+  var GREETING="Hi! I'm Sofia from Structure. Want help choosing your service and barber to book?";
+  var sessionId; try{sessionId=sessionStorage.getItem('rc-sid')||('web-'+Math.random().toString(36).slice(2));sessionStorage.setItem('rc-sid',sessionId);}catch(e){sessionId='web-'+Math.random().toString(36).slice(2);}
+  var root=document.getElementById('rc-root');
+  root.innerHTML='<div id="rc-launch"><div id="rc-hi"></div><button id="rc-btn" aria-label="Open chat">&#128172;</button></div>'+
+    '<div id="rc-panel"><div id="rc-head"><span id="rc-dot"></span><div><b>Sofia · Front Desk</b><span>Replies in seconds</span></div><button id="rc-x">&#10005;</button></div>'+
+    '<div id="rc-msgs"></div>'+
+    '<div id="rc-book">Book your appointment &#128073; <a href="'+SQUIRE+'" target="_blank" rel="noopener">Open Squire</a> · <a href="'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp</a></div>'+
+    '<form id="rc-form"><input id="rc-in" placeholder="Type your message..." autocomplete="off"><button id="rc-send">Send</button></form></div>';
+  var btn=root.querySelector('#rc-btn'),hi=root.querySelector('#rc-hi'),panel=root.querySelector('#rc-panel'),msgs=root.querySelector('#rc-msgs'),form=root.querySelector('#rc-form'),input=root.querySelector('#rc-in');
+  var greeted=false,opened=false;
+  function add(t,who){var d=document.createElement('div');d.className='rc-m '+(who==='me'?'rc-me':'rc-bot');d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  setTimeout(function(){if(!greeted&&!opened){greeted=true;btn.classList.add('jump');hi.textContent=GREETING;hi.classList.add('show');setTimeout(function(){hi.classList.remove('show');btn.classList.remove('jump');},8000);}},1500);
+  window.addEventListener('scroll',function(){if(greeted||opened)return;if(window.scrollY>500){greeted=true;btn.classList.add('jump');hi.textContent=GREETING;hi.classList.add('show');setTimeout(function(){hi.classList.remove('show');btn.classList.remove('jump');},7000);}},{passive:true});
+  function open(){opened=true;hi.classList.remove('show');panel.classList.add('open');if(!msgs.children.length)add(GREETING,'bot');input.focus();}
+  btn.onclick=open;window.rcOpen=open;root.querySelector('#rc-x').onclick=function(){panel.classList.remove('open');};
+  form.onsubmit=function(e){e.preventDefault();var t=input.value.trim();if(!t)return;add(t,'me');input.value='';input.disabled=true;
+    var typing=document.createElement('div');typing.className='rc-m rc-bot';typing.textContent='...';msgs.appendChild(typing);msgs.scrollTop=msgs.scrollHeight;
+    function done(){input.disabled=false;input.focus();}
+    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:t,sessionId:sessionId,source:'web-structure'})})
+      .then(function(r){return r.json();}).then(function(d){typing.remove();add((d&&(d.reply||d.output||d.text))||'Got it, one moment...','bot');done();})
+      .catch(function(){typing.remove();var m=document.createElement('div');m.className='rc-m rc-bot';m.appendChild(document.createTextNode("I can't reply here right now. Message us on WhatsApp: "));var a=document.createElement('a');a.href=WHATSAPP;a.target='_blank';a.rel='noopener';a.style.color='#B89A6A';a.style.textDecoration='underline';a.textContent='Open WhatsApp';m.appendChild(a);msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;done();});
+  };
+})();
+</script>
+
 </body>
 </html>
