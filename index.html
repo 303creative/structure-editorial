@@ -43,7 +43,7 @@
 
   <header style="position:sticky;top:0;z-index:40;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:rgba(10,10,11,0.92);border-bottom:1px solid #1C1C1E;backdrop-filter:blur(14px)">
     <a href="#top" style="display:flex;align-items:center;gap:10px">
-      <span style="width:34px;height:38px;overflow:hidden;display:block"><img src="assets/logo.png" alt="" aria-hidden="true" style="width:64px;margin:-2px 0 0 -15px;display:block;filter:brightness(1.6) contrast(1.05)" /></span>
+      <span style="height:34px;display:flex;align-items:center"><img src="assets/logo.png" alt="Structure Men's Studio logo" style="height:34px;width:auto;display:block;filter:brightness(1.75)" /></span>
       <span style="font-size:11px;font-weight:600;letter-spacing:0.26em;color:#E9E0D3">STRUCTURE</span>
     </a>
     <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:46px;height:46px;margin-right:-12px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;background:none;border:0;cursor:pointer;padding:0">
@@ -63,7 +63,8 @@
       <a href="barbers.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">BARBERS</a>
       <a href="journal.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">JOURNAL</a>
       <a href="store.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">STORE</a>
-      <a href="#contact" onClick="{{ toggleMenu }}" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E;border-bottom:1px solid #1C1C1E;color:#B89A6A">BOOK &nbsp;→</a>
+      <a href="chat.html" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E">SOFÍA</a>
+      <a href="https://web.getsquire.com/brands/bri-barber-331" style="font-size:30px;font-weight:500;letter-spacing:0.02em;padding:16px 0;border-top:1px solid #1C1C1E;border-bottom:1px solid #1C1C1E;color:#B89A6A">BOOK &nbsp;→</a>
     </div>
     <div style="margin-top:auto;font-size:10px;letter-spacing:0.2em;color:#7E766B">WEST BRICKELL · BY APPOINTMENT</div>
   </nav>
@@ -82,7 +83,7 @@
     <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:10px;letter-spacing:0.2em;color:#7E766B">
       <span>GUIDED / SCISSORS / FADE</span><span style="color:#B89A6A">EST. MIAMI</span>
     </div>
-    <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;margin-top:26px;height:58px;padding:0 24px;background:#E9E0D3;color:#0A0A0B;font-size:11px;font-weight:600;letter-spacing:0.2em" style-hover="background:#B89A6A">
+    <a href="https://web.getsquire.com/brands/bri-barber-331" style="display:flex;align-items:center;justify-content:space-between;margin-top:26px;height:58px;padding:0 24px;background:#E9E0D3;color:#0A0A0B;font-size:11px;font-weight:600;letter-spacing:0.2em" style-hover="background:#B89A6A">
       <span>BOOK A SESSION</span><span>→</span>
     </a>
   </section>
@@ -194,13 +195,13 @@
       <input type="tel" placeholder="YOUR PHONE" style="height:52px;background:none;border:0;border-bottom:1px solid #2A2A2C;color:#E9E0D3;font-size:12px;letter-spacing:0.18em;outline:none" />
     </div>
     <div style="display:flex;justify-content:flex-end;margin-top:18px">
-      <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" aria-label="Book on Squire" style="width:52px;height:52px;border:1px solid #2A2A2C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#E9E0D3;font-size:17px" style-hover="border-color:#B89A6A;color:#B89A6A">→</a>
+      <a href="https://web.getsquire.com/brands/bri-barber-331" aria-label="Book on Squire" style="width:52px;height:52px;border:1px solid #2A2A2C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#E9E0D3;font-size:17px" style-hover="border-color:#B89A6A;color:#B89A6A">→</a>
     </div>
   </section>
 
   <section data-screen-label="Reviews" style="margin-top:72px">
     <h2 style="margin:0;padding:0 20px;font-size:22px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">Clients about<br />our work</h2>
-    <div class="sc-x" style="margin-top:20px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 4px">
+    <div id="rcrev" class="sc-x" style="margin-top:20px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 4px">
       <blockquote style="flex:0 0 82%;scroll-snap-align:start;margin:0;border:1px solid #1C1C1E;padding:24px 20px 26px">
         <span style="display:block;font-family:'EB Garamond',serif;font-size:56px;line-height:0.5;color:#B89A6A">“</span>
         <p style="margin:18px 0 0;font-size:15px;line-height:1.6;color:#E9E0D3">Precision, patience and a cut that actually holds — that is why our clients keep coming back to Structure.</p>
@@ -266,7 +267,7 @@
       </div>
       <p style="margin:16px 0 0;font-size:19px;line-height:1.3;font-weight:500;text-transform:uppercase;letter-spacing:0.01em;color:#E9E0D3">How can we<br />help you today?</p>
       <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
-        <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">BOOK AN APPOINTMENT <span style="color:#B89A6A">→</span></a>
+        <a href="https://web.getsquire.com/brands/bri-barber-331" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">BOOK AN APPOINTMENT <span style="color:#B89A6A">→</span></a>
         <a href="services.html" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">WHICH SERVICE DO I NEED? <span style="color:#B89A6A">→</span></a>
         <a href="tel:+13475004037" style="display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:0 16px;border:1px solid #2A2A2C;font-size:12px;letter-spacing:0.14em;color:#E9E0D3" style-hover="border-color:#B89A6A">CALL THE STUDIO <span style="color:#B89A6A">→</span></a>
       </div>
@@ -288,7 +289,7 @@
     <a href="work.html" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#8C8378">
       <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="4" width="7" height="7"></rect><rect x="13" y="4" width="7" height="7"></rect><rect x="4" y="13" width="7" height="7"></rect><rect x="13" y="13" width="7" height="7"></rect></svg>WORK
     </a>
-    <a href="https://web.getsquire.com/brands/bri-barber-331" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#B89A6A">
+    <a href="https://web.getsquire.com/brands/bri-barber-331" style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;letter-spacing:0.16em;color:#B89A6A">
       <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="5" width="16" height="15"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>BOOK
     </a>
   </nav>
@@ -330,62 +331,15 @@ class Component extends DCLogic {
   }
 }
 </script>
-<!-- RECEPCIONISTA STRUCTURE (The303) — chat Sofía -->
-<div id="rc-root"></div>
-<style>
-#rc-root{--rc-bg:#171718;--rc-accent:#B89A6A;--rc-text:#E9E0D3;--rc-mut:#8C8378;font-family:'Instrument Sans',system-ui,sans-serif}
-#rc-launch{position:fixed;left:20px;bottom:20px;z-index:2147483000;display:flex;flex-direction:row-reverse;align-items:center;gap:10px}
-#rc-hi{background:#211F1C;color:var(--rc-text);font-size:13px;padding:10px 14px;border-radius:14px;max-width:210px;box-shadow:0 10px 30px #0009;opacity:0;transform:translateY(6px);transition:.3s;pointer-events:none}
-#rc-hi.show{opacity:1;transform:translateY(0)}
-#rc-btn{width:58px;height:58px;border:none;border-radius:50%;cursor:pointer;background:linear-gradient(135deg,#B89A6A,#8f7d5f);color:#0D0D0E;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(184,154,106,.4)}
-#rc-btn.jump{animation:rcJump 1s ease 2}
-@keyframes rcJump{0%,100%{transform:translateY(0)}20%{transform:translateY(-14px)}40%{transform:translateY(0)}60%{transform:translateY(-7px)}80%{transform:translateY(0)}}
-#rc-panel{position:fixed;left:20px;bottom:90px;width:340px;max-width:calc(100vw - 40px);height:460px;max-height:70vh;background:var(--rc-bg);border:1px solid #2A2A2C;border-radius:18px;z-index:99999;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px #000b}
-#rc-panel.open{display:flex}
-#rc-head{padding:14px 16px;background:#1C1C1E;border-bottom:1px solid #2A2A2C;display:flex;align-items:center;gap:10px}
-#rc-head b{color:var(--rc-text);font-size:14px}
-#rc-head span{color:var(--rc-mut);font-size:11px;display:block}
-#rc-dot{width:9px;height:9px;border-radius:50%;background:#37d67a;flex:none}
-#rc-x{margin-left:auto;background:none;border:none;color:var(--rc-mut);font-size:18px;cursor:pointer}
-#rc-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
-.rc-m{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13.5px;line-height:1.45}
-.rc-bot{background:#211F1C;color:var(--rc-text);align-self:flex-start;border-bottom-left-radius:4px}
-.rc-me{background:var(--rc-accent);color:#0D0D0E;align-self:flex-end;border-bottom-right-radius:4px;font-weight:600}
-#rc-form{display:flex;gap:8px;padding:12px;border-top:1px solid #2A2A2C}
-#rc-in{flex:1;background:#0D0D0E;border:1px solid #2A2A2C;border-radius:8px;padding:10px 14px;color:var(--rc-text);font-size:16px;outline:none}
-#rc-send{background:var(--rc-accent);border:none;color:#0D0D0E;font-weight:700;border-radius:8px;padding:0 16px;cursor:pointer}
-#rc-book{display:block;text-align:center;font-size:11px;color:var(--rc-mut);padding:0 0 10px}
-#rc-book a{color:var(--rc-accent);text-decoration:underline}
-</style>
 <script>
-(function(){
-  var WEBHOOK_URL="https://the303photography.app.n8n.cloud/webhook/recepcionista-structure";
-  var WHATSAPP="https://wa.me/13475004037";
-  var SQUIRE="https://web.getsquire.com/brands/bri-barber-331";
-  var GREETING="Hi! I'm Sofia from Structure. Want help choosing your service and barber to book?";
-  var sessionId; try{sessionId=sessionStorage.getItem('rc-sid')||('web-'+Math.random().toString(36).slice(2));sessionStorage.setItem('rc-sid',sessionId);}catch(e){sessionId='web-'+Math.random().toString(36).slice(2);}
-  var root=document.getElementById('rc-root');
-  root.innerHTML='<div id="rc-launch"><div id="rc-hi"></div><button id="rc-btn" aria-label="Open chat">&#128172;</button></div>'+
-    '<div id="rc-panel"><div id="rc-head"><span id="rc-dot"></span><div><b>Sofia · Front Desk</b><span>Replies in seconds</span></div><button id="rc-x">&#10005;</button></div>'+
-    '<div id="rc-msgs"></div>'+
-    '<div id="rc-book">Book your appointment &#128073; <a href="'+SQUIRE+'" target="_blank" rel="noopener">Open Squire</a> · <a href="'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp</a></div>'+
-    '<form id="rc-form"><input id="rc-in" placeholder="Type your message..." autocomplete="off"><button id="rc-send">Send</button></form></div>';
-  var btn=root.querySelector('#rc-btn'),hi=root.querySelector('#rc-hi'),panel=root.querySelector('#rc-panel'),msgs=root.querySelector('#rc-msgs'),form=root.querySelector('#rc-form'),input=root.querySelector('#rc-in');
-  var greeted=false,opened=false;
-  function add(t,who){var d=document.createElement('div');d.className='rc-m '+(who==='me'?'rc-me':'rc-bot');d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-  setTimeout(function(){if(!greeted&&!opened){greeted=true;btn.classList.add('jump');hi.textContent=GREETING;hi.classList.add('show');setTimeout(function(){hi.classList.remove('show');btn.classList.remove('jump');},8000);}},1500);
-  window.addEventListener('scroll',function(){if(greeted||opened)return;if(window.scrollY>500){greeted=true;btn.classList.add('jump');hi.textContent=GREETING;hi.classList.add('show');setTimeout(function(){hi.classList.remove('show');btn.classList.remove('jump');},7000);}},{passive:true});
-  function open(){opened=true;hi.classList.remove('show');panel.classList.add('open');if(!msgs.children.length)add(GREETING,'bot');input.focus();}
-  btn.onclick=open;window.rcOpen=open;root.querySelector('#rc-x').onclick=function(){panel.classList.remove('open');};
-  form.onsubmit=function(e){e.preventDefault();var t=input.value.trim();if(!t)return;add(t,'me');input.value='';input.disabled=true;
-    var typing=document.createElement('div');typing.className='rc-m rc-bot';typing.textContent='...';msgs.appendChild(typing);msgs.scrollTop=msgs.scrollHeight;
-    function done(){input.disabled=false;input.focus();}
-    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:t,sessionId:sessionId,source:'web-structure'})})
-      .then(function(r){return r.json();}).then(function(d){typing.remove();add((d&&(d.reply||d.output||d.text))||'Got it, one moment...','bot');done();})
-      .catch(function(){typing.remove();var m=document.createElement('div');m.className='rc-m rc-bot';m.appendChild(document.createTextNode("I can't reply here right now. Message us on WhatsApp: "));var a=document.createElement('a');a.href=WHATSAPP;a.target='_blank';a.rel='noopener';a.style.color='#B89A6A';a.style.textDecoration='underline';a.textContent='Open WhatsApp';m.appendChild(a);msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;done();});
-  };
-})();
+(function(){var R=document.getElementById('rcrev');if(!R)return;
+fetch('https://the303photography.app.n8n.cloud/webhook/structure-reviews-list').then(function(r){return r.json();}).then(function(d){
+ if(!Array.isArray(d)||!d.length)return;
+ var frag='';for(var i=0;i<Math.min(d.length,8);i++){frag+='<blockquote style="flex:0 0 82%;scroll-snap-align:start;margin:0;border:1px solid #1C1C1E;padding:24px 20px 26px"><span style="display:block;font-family:\'EB Garamond\',serif;font-size:56px;line-height:0.5;color:#B89A6A">\u201C</span><p class="rq" style="margin:18px 0 0;font-size:15px;line-height:1.6;color:#E9E0D3"></p><footer class="rf" style="margin-top:18px;font-size:10px;letter-spacing:0.18em;color:#7E766B"></footer></blockquote>';}
+ R.innerHTML=frag+'<div style="flex:0 0 8px"></div>';
+ var qs=R.querySelectorAll('blockquote');
+ for(var j=0;j<qs.length;j++){var x=d[j];qs[j].querySelector('.rq').textContent=x.text||'';var nm=(x.name||'Structure client');var src=(x.service||x.source||'Google');qs[j].querySelector('.rf').innerHTML=String(nm).toUpperCase()+'<br /><span style="color:#B89A6A">'+String(src).toUpperCase()+'</span>';}
+}).catch(function(){});})();
 </script>
-
 </body>
 </html>
