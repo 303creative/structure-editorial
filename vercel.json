@@ -1,0 +1,13 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/Blog.dc.html", "destination": "/journal.html", "permanent": true },
+    { "source": "/blog.dc.html", "destination": "/journal.html", "permanent": true },
+    { "source": "/Merch.dc.html", "destination": "/store.html", "permanent": true },
+    { "source": "/merch.dc.html", "destination": "/store.html", "permanent": true },
+    { "source": "/Services.dc.html", "destination": "/services.html", "permanent": true },
+    { "source": "/Work.dc.html", "destination": "/work.html", "permanent": true },
+    { "source": "/(.*)\\.dc\\.html", "destination": "/", "permanent": true }
+  ]
+}
