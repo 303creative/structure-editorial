@@ -57,7 +57,7 @@ form.rev textarea{min-height:92px;resize:vertical}
 
 <div class="summary" id="summary">
  <div><div class="big" id="avg">—</div><div class="stars" id="avgStars">★★★★★</div></div>
- <div><div class="muted"><span id="count">0</span> client reviews</div><div class="muted">Structure Men's Studio · West Brickell</div></div>
+ <div><div class="muted"><span id="count">79</span> reviews on Google</div><div class="muted">Structure Men's Studio · West Brickell</div></div>
 </div>
 
 <h2>What clients say</h2>
@@ -100,7 +100,11 @@ form.rev textarea{min-height:92px;resize:vertical}
 </div>
 
 <script>
-const REVIEWS = [];
+const REVIEWS = [
+ {name:"James Jeremy Scher",stars:5,service:"All-Scissor Haircut",date:"A month ago",source:"Google",text:"I was looking specifically for an all-scissors haircut and I was very pleased with the result. Great salon \u2014 would highly recommend."},
+ {name:"Javi Zubillaga",stars:5,service:"Guided Haircut",date:"7 months ago",source:"Google",text:"Bri is the best! Her haircuts are always perfect, the setup is wonderful, and she takes care of all her clients like family. Highly recommend to anyone looking for top service in Brickell."},
+ {name:"Bryan Cruz",stars:5,service:"Skin Fade",date:"6 months ago",source:"Google",text:"One of the most skilled barbers I've ever sat in a chair with. He pays attention to the details and makes sure the cut fits you \u2014 every visit is consistent: sharp fades, clean lines and a smooth finish."}
+];
 const POST="https://the303photography.app.n8n.cloud/webhook/structure-reviews";
 const GET="https://the303photography.app.n8n.cloud/webhook/structure-reviews-list";
 const SVC=["All","Guided Haircut","All-Scissor Haircut","Skin Fade","Classic Haircut","Beard Ritual","Structure Experience"];
@@ -110,17 +114,15 @@ function render(){
  const list=REVIEWS.filter(r=>filter==="All"||r.service===filter);
  const cards=document.getElementById('cards');
  if(!REVIEWS.length){cards.innerHTML='<div class="empty">No reviews yet — be the first to share your experience.</div>';}
- else cards.innerHTML=list.map(r=>`<div class="card"><div class="top"><div class="avatar">${(r.name||'?')[0]}</div><div style="flex:1"><div class="name">${r.name}</div><div class="date">${r.date||''}</div></div><div class="stars">${starStr(r.stars)}</div></div><div class="rev">${r.text}</div>${r.service?`<span class="svc">${r.service}</span>`:''}</div>`).join('');
- const real=REVIEWS.filter(r=>r.stars);
- const avg=real.length?(real.reduce((a,b)=>a+b.stars,0)/real.length):0;
- document.getElementById('avg').textContent=avg?avg.toFixed(1):'—';
- document.getElementById('avgStars').textContent=starStr(Math.round(avg));
- document.getElementById('count').textContent=REVIEWS.length;
- document.getElementById('summary').style.display=REVIEWS.length?'flex':'none';
+ else cards.innerHTML=list.map(r=>`<div class="card"><div class="top"><div class="avatar">${(r.name||'?')[0]}</div><div style="flex:1"><div class="name">${r.name}</div><div class="date">${r.date||''}</div></div><div class="stars">${starStr(r.stars)}</div></div><div class="rev">${r.text}</div>${r.service?`<span class="svc">${r.service}</span>`:''}${r.source?`<span class="svc" style="border-color:#B89A6A;color:#B89A6A;margin-left:6px">${r.source}</span>`:''}</div>`).join('');
+ document.getElementById('avg').textContent='4.9';
+ document.getElementById('avgStars').textContent='★★★★★';
+ document.getElementById('count').textContent='79';
+ document.getElementById('summary').style.display='flex';
 }
 const chips=document.getElementById('chips');
 SVC.forEach(s=>{const b=document.createElement('button');b.className='chip'+(s==='All'?' active':'');b.textContent=s;b.onclick=()=>{filter=s;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));b.classList.add('active');render();};chips.appendChild(b);});
-fetch(GET).then(r=>r.json()).then(d=>{if(Array.isArray(d)&&d.length){REVIEWS.length=0;d.forEach(x=>REVIEWS.push(x));render();}}).catch(()=>{});
+fetch(GET).then(r=>r.json()).then(d=>{if(Array.isArray(d)&&d.length){d.forEach(x=>REVIEWS.push({name:x.name,text:x.text||x.comment,stars:x.stars,service:x.service,date:x.date,source:x.source||'Website'}));render();}}).catch(()=>{});
 render();
 let rating=0;
 document.querySelectorAll('#starpick span').forEach(s=>{s.onclick=()=>{rating=+s.dataset.v;document.querySelectorAll('#starpick span').forEach(x=>x.classList.toggle('on',+x.dataset.v<=rating));};});
