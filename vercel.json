@@ -2,7 +2,6 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.structuremenstudio.com" }], "destination": "https://structuremenstudio.com/:path*", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/Blog.dc.html", "destination": "/journal.html", "permanent": true },
     { "source": "/blog.dc.html", "destination": "/journal.html", "permanent": true },
