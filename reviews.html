@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Structure Men's Studio Reviews | Barber in West Brickell, Miami</title>
 <meta name="description" content="Read real client reviews of Structure Men's Studio, a precision barbershop in West Brickell, Miami. Guided haircuts, all-scissor cuts, skin fades and beard rituals. By appointment.">
-<link rel="canonical" href="https://www.structuremenstudio.com/reviews.html">
+<link rel="canonical" href="https://structuremenstudio.com/reviews.html">
 <meta property="og:title" content="Structure Men's Studio Reviews"><meta property="og:description" content="Real client reviews. Precision barbershop in West Brickell, Miami.">
-<meta property="og:type" content="website"><meta property="og:url" content="https://www.structuremenstudio.com/reviews.html"><meta property="og:image" content="https://www.structuremenstudio.com/assets/photo-1.jpg">
+<meta property="og:type" content="website"><meta property="og:url" content="https://structuremenstudio.com/reviews.html"><meta property="og:image" content="https://structuremenstudio.com/assets/photo-1.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HairSalon", "@id": "https://www.structuremenstudio.com/#business", "name": "Structure Men's Studio", "url": "https://www.structuremenstudio.com/", "telephone": "+1-347-500-4037", "address": {"@type": "PostalAddress", "streetAddress": "1110 SW 2nd Ave, Suite 4", "addressLocality": "Miami", "addressRegion": "FL", "postalCode": "33130", "addressCountry": "US"}, "areaServed": ["West Brickell", "Brickell", "Downtown Miami"], "priceRange": "$$"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HairSalon", "@id": "https://structuremenstudio.com/#business", "name": "Structure Men's Studio", "url": "https://structuremenstudio.com/", "telephone": "+1-347-500-4037", "address": {"@type": "PostalAddress", "streetAddress": "1110 SW 2nd Ave, Suite 4", "addressLocality": "Miami", "addressRegion": "FL", "postalCode": "33130", "addressCountry": "US"}, "areaServed": ["West Brickell", "Brickell", "Downtown Miami"], "priceRange": "$$"}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}
 body{background:#0A0A0B;color:#E9E0D3;font-family:'Instrument Sans',system-ui,sans-serif;line-height:1.7}
 .w{max-width:760px;margin:0 auto;padding:44px 22px 90px}
@@ -101,9 +101,9 @@ form.rev textarea{min-height:92px;resize:vertical}
 
 <script>
 const REVIEWS = [
- {name:"James Jeremy Scher",stars:5,service:"All-Scissor Haircut",date:"A month ago",source:"Google",text:"I was looking specifically for an all-scissors haircut and I was very pleased with the result. Great salon \u2014 would highly recommend."},
- {name:"Javi Zubillaga",stars:5,service:"Guided Haircut",date:"7 months ago",source:"Google",text:"Bri is the best! Her haircuts are always perfect, the setup is wonderful, and she takes care of all her clients like family. Highly recommend to anyone looking for top service in Brickell."},
- {name:"Bryan Cruz",stars:5,service:"Skin Fade",date:"6 months ago",source:"Google",text:"One of the most skilled barbers I've ever sat in a chair with. He pays attention to the details and makes sure the cut fits you \u2014 every visit is consistent: sharp fades, clean lines and a smooth finish."}
+ {name:"James Jeremy Scher",stars:5,service:"All-Scissor Haircut",date:"",source:"Google",text:"I was looking specifically for an all-scissors haircut and I was very pleased with the result. Great salon \u2014 would highly recommend."},
+ {name:"Javi Zubillaga",stars:5,service:"Guided Haircut",date:"",source:"Google",text:"Bri is the best! Her haircuts are always perfect, the setup is wonderful, and she takes care of all her clients like family. Highly recommend to anyone looking for top service in Brickell."},
+ {name:"Bryan Cruz",stars:5,service:"Skin Fade",date:"",source:"Google",text:"One of the most skilled barbers I've ever sat in a chair with. He pays attention to the details and makes sure the cut fits you \u2014 every visit is consistent: sharp fades, clean lines and a smooth finish."}
 ];
 const POST="https://the303photography.app.n8n.cloud/webhook/structure-reviews";
 const GET="https://the303photography.app.n8n.cloud/webhook/structure-reviews-list";
@@ -131,7 +131,7 @@ document.getElementById('revForm').onsubmit=async(e)=>{
  if(!rating){msg.textContent='Please select a star rating.';return;}
  const payload={name:document.getElementById('f_name').value,service:document.getElementById('f_service').value,stars:rating,comment:document.getElementById('f_comment').value,submitted_at:new Date().toISOString(),source:'website'};
  document.getElementById('subBtn').textContent='Sending...';
- try{await fetch(POST,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});msg.style.color='#B89A6A';msg.textContent='Thank you! Your review was submitted and will appear after a quick check.';e.target.reset();rating=0;document.querySelectorAll('#starpick span').forEach(x=>x.classList.remove('on'));}
+ try{const rr=await fetch(POST,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!rr.ok)throw new Error('bad status '+rr.status);msg.style.color='#B89A6A';msg.textContent='Thank you! Your review was submitted and will appear after a quick check.';e.target.reset();rating=0;document.querySelectorAll('#starpick span').forEach(x=>x.classList.remove('on'));}
  catch(err){msg.style.color='#c98';msg.innerHTML='Could not submit right now. Please try again later.';}
  document.getElementById('subBtn').textContent='Submit review';
 };
