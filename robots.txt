@@ -4,6 +4,8 @@
 
 User-agent: *
 Allow: /
+Disallow: /galeria-curaduria-s4t9x.html
+Disallow: /galeria/
 
 # Crawlers de IA — permitidos para visibilidad en ChatGPT, Gemini, Claude, Perplexity
 User-agent: GPTBot
