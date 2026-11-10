@@ -1,0 +1,852 @@
+[
+ {
+  "id": "local-01",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00020.jpg",
+  "src": "01 El local/DSC00020.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-02",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00021.jpg",
+  "src": "01 El local/DSC00021.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-03",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00032.jpg",
+  "src": "01 El local/DSC00032.jpg",
+  "w": 6000,
+  "h": 4000,
+  "orient": "landscape"
+ },
+ {
+  "id": "local-04",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00049.jpg",
+  "src": "01 El local/DSC00049.jpg",
+  "w": 6000,
+  "h": 4000,
+  "orient": "landscape"
+ },
+ {
+  "id": "local-05",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00176.jpg",
+  "src": "01 El local/DSC00176.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-06",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00178.jpg",
+  "src": "01 El local/DSC00178.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-07",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00359.jpg",
+  "src": "01 El local/DSC00359.jpg",
+  "w": 3459,
+  "h": 4324,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-08",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00387.jpg",
+  "src": "01 El local/DSC00387.jpg",
+  "w": 6000,
+  "h": 4000,
+  "orient": "landscape"
+ },
+ {
+  "id": "local-09",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00414.jpg",
+  "src": "01 El local/DSC00414.jpg",
+  "w": 3150,
+  "h": 3938,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-10",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00415.jpg",
+  "src": "01 El local/DSC00415.jpg",
+  "w": 3121,
+  "h": 3901,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-11",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00484.jpg",
+  "src": "01 El local/DSC00484.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-12",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC00521.jpg",
+  "src": "01 El local/DSC00521.jpg",
+  "w": 3863,
+  "h": 4828,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-13",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC05165.jpg",
+  "src": "01 El local/DSC05165.jpg",
+  "w": 3746,
+  "h": 5619,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-14",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC05322.jpg",
+  "src": "01 El local/DSC05322.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-15",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC06762.jpg",
+  "src": "01 El local/DSC06762.jpg",
+  "w": 3871,
+  "h": 5807,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-16",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC08070.jpg",
+  "src": "01 El local/DSC08070.jpg",
+  "w": 4000,
+  "h": 5000,
+  "orient": "portrait"
+ },
+ {
+  "id": "local-17",
+  "cat": "local",
+  "catLabel": "El local",
+  "file": "DSC09721.jpg",
+  "src": "01 El local/DSC09721.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-01",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC00169.jpg",
+  "src": "02 La gente/DSC00169.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-02",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC00435.jpg",
+  "src": "02 La gente/DSC00435.jpg",
+  "w": 3787,
+  "h": 4733,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-03",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05148.jpg",
+  "src": "02 La gente/DSC05148.jpg",
+  "w": 3793,
+  "h": 4741,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-04",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05154.jpg",
+  "src": "02 La gente/DSC05154.jpg",
+  "w": 3712,
+  "h": 4641,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-05",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05169.jpg",
+  "src": "02 La gente/DSC05169.jpg",
+  "w": 3845,
+  "h": 4806,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-06",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05191.jpg",
+  "src": "02 La gente/DSC05191.jpg",
+  "w": 3524,
+  "h": 4405,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-07",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05214.jpg",
+  "src": "02 La gente/DSC05214.jpg",
+  "w": 3518,
+  "h": 4398,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-08",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05244.jpg",
+  "src": "02 La gente/DSC05244.jpg",
+  "w": 3429,
+  "h": 4287,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-09",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05306.jpg",
+  "src": "02 La gente/DSC05306.jpg",
+  "w": 3955,
+  "h": 5933,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-10",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05578.jpg",
+  "src": "02 La gente/DSC05578.jpg",
+  "w": 3192,
+  "h": 3990,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-11",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05584.jpg",
+  "src": "02 La gente/DSC05584.jpg",
+  "w": 2662,
+  "h": 3328,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-12",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05772.jpg",
+  "src": "02 La gente/DSC05772.jpg",
+  "w": 3962,
+  "h": 5943,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-13",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05791.jpg",
+  "src": "02 La gente/DSC05791.jpg",
+  "w": 3396,
+  "h": 5094,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-14",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC05946.jpg",
+  "src": "02 La gente/DSC05946.jpg",
+  "w": 3932,
+  "h": 5899,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-15",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC06847.jpg",
+  "src": "02 La gente/DSC06847.jpg",
+  "w": 3965,
+  "h": 5948,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-16",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC07819.jpg",
+  "src": "02 La gente/DSC07819.jpg",
+  "w": 4000,
+  "h": 5000,
+  "orient": "portrait"
+ },
+ {
+  "id": "gente-17",
+  "cat": "gente",
+  "catLabel": "La gente",
+  "file": "DSC07990.jpg",
+  "src": "02 La gente/DSC07990.jpg",
+  "w": 3932,
+  "h": 5899,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-01",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC05428.jpg",
+  "src": "03 El oficio/DSC05428.jpg",
+  "w": 3902,
+  "h": 5853,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-02",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC05528.jpg",
+  "src": "03 El oficio/DSC05528.jpg",
+  "w": 3805,
+  "h": 5707,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-03",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC05896.jpg",
+  "src": "03 El oficio/DSC05896.jpg",
+  "w": 3873,
+  "h": 5809,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-04",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06044.jpg",
+  "src": "03 El oficio/DSC06044.jpg",
+  "w": 3896,
+  "h": 5844,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-05",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06107.jpg",
+  "src": "03 El oficio/DSC06107.jpg",
+  "w": 3995,
+  "h": 5992,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-06",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06244.jpg",
+  "src": "03 El oficio/DSC06244.jpg",
+  "w": 3952,
+  "h": 5929,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-07",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06275.jpg",
+  "src": "03 El oficio/DSC06275.jpg",
+  "w": 3894,
+  "h": 5842,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-08",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06845.jpg",
+  "src": "03 El oficio/DSC06845.jpg",
+  "w": 3879,
+  "h": 5818,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-09",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC06932.jpg",
+  "src": "03 El oficio/DSC06932.jpg",
+  "w": 6000,
+  "h": 4000,
+  "orient": "landscape"
+ },
+ {
+  "id": "oficio-10",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC07854.jpg",
+  "src": "03 El oficio/DSC07854.jpg",
+  "w": 4000,
+  "h": 5000,
+  "orient": "portrait"
+ },
+ {
+  "id": "oficio-11",
+  "cat": "oficio",
+  "catLabel": "El oficio",
+  "file": "DSC09855.jpg",
+  "src": "03 El oficio/DSC09855.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-01",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00191.jpg",
+  "src": "04 El detalle/DSC00191.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-02",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00252.jpg",
+  "src": "04 El detalle/DSC00252.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-03",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00264.jpg",
+  "src": "04 El detalle/DSC00264.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-04",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00287.jpg",
+  "src": "04 El detalle/DSC00287.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-05",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00335.jpg",
+  "src": "04 El detalle/DSC00335.jpg",
+  "w": 1682,
+  "h": 2103,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-06",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00350.jpg",
+  "src": "04 El detalle/DSC00350.jpg",
+  "w": 2421,
+  "h": 3026,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-07",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00356.jpg",
+  "src": "04 El detalle/DSC00356.jpg",
+  "w": 2762,
+  "h": 3452,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-08",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00406.jpg",
+  "src": "04 El detalle/DSC00406.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-09",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00493.jpg",
+  "src": "04 El detalle/DSC00493.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-10",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00498.jpg",
+  "src": "04 El detalle/DSC00498.jpg",
+  "w": 3687,
+  "h": 2950,
+  "orient": "landscape"
+ },
+ {
+  "id": "detalle-11",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00650.jpg",
+  "src": "04 El detalle/DSC00650.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-12",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00738.jpg",
+  "src": "04 El detalle/DSC00738.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-13",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00802.jpg",
+  "src": "04 El detalle/DSC00802.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-14",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00893.jpg",
+  "src": "04 El detalle/DSC00893.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-15",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00916.jpg",
+  "src": "04 El detalle/DSC00916.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-16",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC00997.jpg",
+  "src": "04 El detalle/DSC00997.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-17",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC01046.jpg",
+  "src": "04 El detalle/DSC01046.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-18",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC01144.jpg",
+  "src": "04 El detalle/DSC01144.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-19",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC05293.jpg",
+  "src": "04 El detalle/DSC05293.jpg",
+  "w": 2462,
+  "h": 3078,
+  "orient": "portrait"
+ },
+ {
+  "id": "detalle-20",
+  "cat": "detalle",
+  "catLabel": "El detalle",
+  "file": "DSC07903.jpg",
+  "src": "04 El detalle/DSC07903.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-01",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC00687.jpg",
+  "src": "05 El ritual y el resultado/DSC00687.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-02",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC00730.jpg",
+  "src": "05 El ritual y el resultado/DSC00730.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-03",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC00851.jpg",
+  "src": "05 El ritual y el resultado/DSC00851.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-04",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC01098.jpg",
+  "src": "05 El ritual y el resultado/DSC01098.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-05",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC05456.jpg",
+  "src": "05 El ritual y el resultado/DSC05456.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-06",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC05480.jpg",
+  "src": "05 El ritual y el resultado/DSC05480.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-07",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC05498.jpg",
+  "src": "05 El ritual y el resultado/DSC05498.jpg",
+  "w": 3925,
+  "h": 5887,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-08",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06398.jpg",
+  "src": "05 El ritual y el resultado/DSC06398.jpg",
+  "w": 5875,
+  "h": 3917,
+  "orient": "landscape"
+ },
+ {
+  "id": "ritual-09",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06495.jpg",
+  "src": "05 El ritual y el resultado/DSC06495.jpg",
+  "w": 5947,
+  "h": 3965,
+  "orient": "landscape"
+ },
+ {
+  "id": "ritual-10",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06575.jpg",
+  "src": "05 El ritual y el resultado/DSC06575.jpg",
+  "w": 5998,
+  "h": 3998,
+  "orient": "landscape"
+ },
+ {
+  "id": "ritual-11",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06625.jpg",
+  "src": "05 El ritual y el resultado/DSC06625.jpg",
+  "w": 3922,
+  "h": 5883,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-12",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06741.jpg",
+  "src": "05 El ritual y el resultado/DSC06741.jpg",
+  "w": 3929,
+  "h": 5894,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-13",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06775.jpg",
+  "src": "05 El ritual y el resultado/DSC06775.jpg",
+  "w": 3498,
+  "h": 5247,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-14",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC06781.jpg",
+  "src": "05 El ritual y el resultado/DSC06781.jpg",
+  "w": 3740,
+  "h": 5611,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-15",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC07179.jpg",
+  "src": "05 El ritual y el resultado/DSC07179.jpg",
+  "w": 3987,
+  "h": 5980,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-16",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC07492.jpg",
+  "src": "05 El ritual y el resultado/DSC07492.jpg",
+  "w": 3987,
+  "h": 5981,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-17",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC07673.jpg",
+  "src": "05 El ritual y el resultado/DSC07673.jpg",
+  "w": 3922,
+  "h": 5884,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-18",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC08088.jpg",
+  "src": "05 El ritual y el resultado/DSC08088.jpg",
+  "w": 3679,
+  "h": 4599,
+  "orient": "portrait"
+ },
+ {
+  "id": "ritual-19",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC08318.jpg",
+  "src": "05 El ritual y el resultado/DSC08318.jpg",
+  "w": 6000,
+  "h": 4000,
+  "orient": "landscape"
+ },
+ {
+  "id": "ritual-20",
+  "cat": "ritual",
+  "catLabel": "El ritual y el resultado",
+  "file": "DSC09922.jpg",
+  "src": "05 El ritual y el resultado/DSC09922.jpg",
+  "w": 4000,
+  "h": 6000,
+  "orient": "portrait"
+ }
+]

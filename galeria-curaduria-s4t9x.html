@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Galería · Curaduría — Structure</title>
+<style>
+  :root{--bg:#F3F1EC;--ink:#1a1a18;--muted:#8a877e;--line:rgba(26,26,24,.12);--gold:#C46A1B;--fav:#C0392B}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header.top{max-width:1180px;margin:0 auto;padding:48px 24px 8px}
+  header.top h1{font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(34px,5vw,56px);letter-spacing:-.01em;margin:0}
+  header.top p{color:var(--muted);font-size:15px;line-height:1.5;max-width:46em;margin:14px 0 0}
+  .bar{position:sticky;top:0;z-index:30;background:rgba(243,241,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar .in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .bar .sel{font-size:14px;font-weight:600;margin-right:auto}
+  .bar .sel b{color:var(--fav)}
+  button.act{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:500;cursor:pointer}
+  button.act:hover{border-color:var(--ink)}
+  button.act.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  main{max-width:1180px;margin:0 auto;padding:16px 24px 80px}
+  .cat{margin-top:48px}
+  .cat h2{font-family:Georgia,serif;font-weight:500;font-size:24px;margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px}
+  .cat h2 .count{font-family:inherit;font-size:13px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:26px 20px}
+  .card{margin:0;position:relative;display:flex;flex-direction:column;align-items:center}
+  .frame{width:100%;background:#fff;padding:8px;border:1px solid var(--line);box-shadow:0 8px 22px rgba(26,26,24,.08);cursor:zoom-in;display:flex;align-items:center;justify-content:center}
+  .frame img{display:block;max-width:100%;height:auto;max-height:260px}
+  .frame.landscape img{width:100%}
+  figcaption{margin-top:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .fav{position:absolute;top:14px;right:14px;z-index:5;width:34px;height:34px;border-radius:999px;border:none;background:rgba(255,255,255,.9);box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;font-size:17px;line-height:34px;color:#b9b6ad;transition:transform .12s}
+  .fav::before{content:"\2661"}
+  .fav:hover{transform:scale(1.1)}
+  .card.is-fav .fav{color:#fff;background:var(--fav)}
+  .card.is-fav .fav::before{content:"\2665"}
+  .card.is-fav .frame{box-shadow:0 0 0 2px var(--fav),0 8px 22px rgba(192,57,43,.25)}
+  body.only-fav .card:not(.is-fav){display:none}
+  body.only-fav .cat:not(:has(.card.is-fav)){display:none}
+  .empty{color:var(--muted);font-size:14px;padding:20px 0}
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(20,19,17,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-width:94vw;max-height:88vh;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff;padding:10px}
+  .lb .x{position:absolute;top:18px;right:22px;color:#fff;font-size:30px;background:none;border:none;cursor:pointer}
+  .lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;background:none;border:none;cursor:pointer;padding:0 18px;opacity:.8}
+  .lb .prev{left:4px}.lb .next{right:4px}
+  .lb .favbig{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);background:#fff;color:var(--ink);border:none;border-radius:999px;padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer}
+  .lb .favbig.on{background:var(--fav);color:#fff}
+  @media print{.bar,.fav,header.top p{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Galería · Curaduría</h1>
+  <p>Selección interna para la galería física de Structure. Toca el corazón para marcar tus favoritas — la selección se guarda en este navegador. Cuando termines, usa <b>Exportar</b> para bajar la lista.</p>
+</header>
+<div class="bar"><div class="in">
+  <span class="sel"><b id="n">0</b> seleccionadas de 85</span>
+  <button class="act" id="onlyfav" type="button">Ver solo favoritas</button>
+  <button class="act" id="export" type="button">Exportar selección</button>
+  <button class="act" id="copy" type="button">Copiar lista</button>
+  <button class="act" id="clear" type="button">Limpiar</button>
+</div></div>
+<main>
+    <section class="cat" data-cat="local">
+      <h2>El local <span class="count">17</span></h2>
+      <div class="grid">
+      <figure class="card" data-id="local-01" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-01-t.webp">
+            <img src="galeria/img/local-01-t.jpg" alt="El local — local-01" loading="lazy" decoding="async" data-full="galeria/img/local-01-l" data-id="local-01">
+          </picture>
+        </div>
+        <figcaption>local-01</figcaption>
+      </figure>
+      <figure class="card" data-id="local-02" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-02-t.webp">
+            <img src="galeria/img/local-02-t.jpg" alt="El local — local-02" loading="lazy" decoding="async" data-full="galeria/img/local-02-l" data-id="local-02">
+          </picture>
+        </div>
+        <figcaption>local-02</figcaption>
+      </figure>
+      <figure class="card" data-id="local-03" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-03-t.webp">
+            <img src="galeria/img/local-03-t.jpg" alt="El local — local-03" loading="lazy" decoding="async" data-full="galeria/img/local-03-l" data-id="local-03">
+          </picture>
+        </div>
+        <figcaption>local-03</figcaption>
+      </figure>
+      <figure class="card" data-id="local-04" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-04-t.webp">
+            <img src="galeria/img/local-04-t.jpg" alt="El local — local-04" loading="lazy" decoding="async" data-full="galeria/img/local-04-l" data-id="local-04">
+          </picture>
+        </div>
+        <figcaption>local-04</figcaption>
+      </figure>
+      <figure class="card" data-id="local-05" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-05-t.webp">
+            <img src="galeria/img/local-05-t.jpg" alt="El local — local-05" loading="lazy" decoding="async" data-full="galeria/img/local-05-l" data-id="local-05">
+          </picture>
+        </div>
+        <figcaption>local-05</figcaption>
+      </figure>
+      <figure class="card" data-id="local-06" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-06-t.webp">
+            <img src="galeria/img/local-06-t.jpg" alt="El local — local-06" loading="lazy" decoding="async" data-full="galeria/img/local-06-l" data-id="local-06">
+          </picture>
+        </div>
+        <figcaption>local-06</figcaption>
+      </figure>
+      <figure class="card" data-id="local-07" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-07-t.webp">
+            <img src="galeria/img/local-07-t.jpg" alt="El local — local-07" loading="lazy" decoding="async" data-full="galeria/img/local-07-l" data-id="local-07">
+          </picture>
+        </div>
+        <figcaption>local-07</figcaption>
+      </figure>
+      <figure class="card" data-id="local-08" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-08-t.webp">
+            <img src="galeria/img/local-08-t.jpg" alt="El local — local-08" loading="lazy" decoding="async" data-full="galeria/img/local-08-l" data-id="local-08">
+          </picture>
+        </div>
+        <figcaption>local-08</figcaption>
+      </figure>
+      <figure class="card" data-id="local-09" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-09-t.webp">
+            <img src="galeria/img/local-09-t.jpg" alt="El local — local-09" loading="lazy" decoding="async" data-full="galeria/img/local-09-l" data-id="local-09">
+          </picture>
+        </div>
+        <figcaption>local-09</figcaption>
+      </figure>
+      <figure class="card" data-id="local-10" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-10-t.webp">
+            <img src="galeria/img/local-10-t.jpg" alt="El local — local-10" loading="lazy" decoding="async" data-full="galeria/img/local-10-l" data-id="local-10">
+          </picture>
+        </div>
+        <figcaption>local-10</figcaption>
+      </figure>
+      <figure class="card" data-id="local-11" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-11-t.webp">
+            <img src="galeria/img/local-11-t.jpg" alt="El local — local-11" loading="lazy" decoding="async" data-full="galeria/img/local-11-l" data-id="local-11">
+          </picture>
+        </div>
+        <figcaption>local-11</figcaption>
+      </figure>
+      <figure class="card" data-id="local-12" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-12-t.webp">
+            <img src="galeria/img/local-12-t.jpg" alt="El local — local-12" loading="lazy" decoding="async" data-full="galeria/img/local-12-l" data-id="local-12">
+          </picture>
+        </div>
+        <figcaption>local-12</figcaption>
+      </figure>
+      <figure class="card" data-id="local-13" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-13-t.webp">
+            <img src="galeria/img/local-13-t.jpg" alt="El local — local-13" loading="lazy" decoding="async" data-full="galeria/img/local-13-l" data-id="local-13">
+          </picture>
+        </div>
+        <figcaption>local-13</figcaption>
+      </figure>
+      <figure class="card" data-id="local-14" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-14-t.webp">
+            <img src="galeria/img/local-14-t.jpg" alt="El local — local-14" loading="lazy" decoding="async" data-full="galeria/img/local-14-l" data-id="local-14">
+          </picture>
+        </div>
+        <figcaption>local-14</figcaption>
+      </figure>
+      <figure class="card" data-id="local-15" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-15-t.webp">
+            <img src="galeria/img/local-15-t.jpg" alt="El local — local-15" loading="lazy" decoding="async" data-full="galeria/img/local-15-l" data-id="local-15">
+          </picture>
+        </div>
+        <figcaption>local-15</figcaption>
+      </figure>
+      <figure class="card" data-id="local-16" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-16-t.webp">
+            <img src="galeria/img/local-16-t.jpg" alt="El local — local-16" loading="lazy" decoding="async" data-full="galeria/img/local-16-l" data-id="local-16">
+          </picture>
+        </div>
+        <figcaption>local-16</figcaption>
+      </figure>
+      <figure class="card" data-id="local-17" data-cat="local">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/local-17-t.webp">
+            <img src="galeria/img/local-17-t.jpg" alt="El local — local-17" loading="lazy" decoding="async" data-full="galeria/img/local-17-l" data-id="local-17">
+          </picture>
+        </div>
+        <figcaption>local-17</figcaption>
+      </figure></div>
+    </section>
+    <section class="cat" data-cat="gente">
+      <h2>La gente <span class="count">17</span></h2>
+      <div class="grid">
+      <figure class="card" data-id="gente-01" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-01-t.webp">
+            <img src="galeria/img/gente-01-t.jpg" alt="La gente — gente-01" loading="lazy" decoding="async" data-full="galeria/img/gente-01-l" data-id="gente-01">
+          </picture>
+        </div>
+        <figcaption>gente-01</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-02" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-02-t.webp">
+            <img src="galeria/img/gente-02-t.jpg" alt="La gente — gente-02" loading="lazy" decoding="async" data-full="galeria/img/gente-02-l" data-id="gente-02">
+          </picture>
+        </div>
+        <figcaption>gente-02</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-03" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-03-t.webp">
+            <img src="galeria/img/gente-03-t.jpg" alt="La gente — gente-03" loading="lazy" decoding="async" data-full="galeria/img/gente-03-l" data-id="gente-03">
+          </picture>
+        </div>
+        <figcaption>gente-03</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-04" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-04-t.webp">
+            <img src="galeria/img/gente-04-t.jpg" alt="La gente — gente-04" loading="lazy" decoding="async" data-full="galeria/img/gente-04-l" data-id="gente-04">
+          </picture>
+        </div>
+        <figcaption>gente-04</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-05" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-05-t.webp">
+            <img src="galeria/img/gente-05-t.jpg" alt="La gente — gente-05" loading="lazy" decoding="async" data-full="galeria/img/gente-05-l" data-id="gente-05">
+          </picture>
+        </div>
+        <figcaption>gente-05</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-06" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-06-t.webp">
+            <img src="galeria/img/gente-06-t.jpg" alt="La gente — gente-06" loading="lazy" decoding="async" data-full="galeria/img/gente-06-l" data-id="gente-06">
+          </picture>
+        </div>
+        <figcaption>gente-06</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-07" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-07-t.webp">
+            <img src="galeria/img/gente-07-t.jpg" alt="La gente — gente-07" loading="lazy" decoding="async" data-full="galeria/img/gente-07-l" data-id="gente-07">
+          </picture>
+        </div>
+        <figcaption>gente-07</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-08" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-08-t.webp">
+            <img src="galeria/img/gente-08-t.jpg" alt="La gente — gente-08" loading="lazy" decoding="async" data-full="galeria/img/gente-08-l" data-id="gente-08">
+          </picture>
+        </div>
+        <figcaption>gente-08</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-09" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-09-t.webp">
+            <img src="galeria/img/gente-09-t.jpg" alt="La gente — gente-09" loading="lazy" decoding="async" data-full="galeria/img/gente-09-l" data-id="gente-09">
+          </picture>
+        </div>
+        <figcaption>gente-09</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-10" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-10-t.webp">
+            <img src="galeria/img/gente-10-t.jpg" alt="La gente — gente-10" loading="lazy" decoding="async" data-full="galeria/img/gente-10-l" data-id="gente-10">
+          </picture>
+        </div>
+        <figcaption>gente-10</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-11" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-11-t.webp">
+            <img src="galeria/img/gente-11-t.jpg" alt="La gente — gente-11" loading="lazy" decoding="async" data-full="galeria/img/gente-11-l" data-id="gente-11">
+          </picture>
+        </div>
+        <figcaption>gente-11</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-12" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-12-t.webp">
+            <img src="galeria/img/gente-12-t.jpg" alt="La gente — gente-12" loading="lazy" decoding="async" data-full="galeria/img/gente-12-l" data-id="gente-12">
+          </picture>
+        </div>
+        <figcaption>gente-12</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-13" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-13-t.webp">
+            <img src="galeria/img/gente-13-t.jpg" alt="La gente — gente-13" loading="lazy" decoding="async" data-full="galeria/img/gente-13-l" data-id="gente-13">
+          </picture>
+        </div>
+        <figcaption>gente-13</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-14" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-14-t.webp">
+            <img src="galeria/img/gente-14-t.jpg" alt="La gente — gente-14" loading="lazy" decoding="async" data-full="galeria/img/gente-14-l" data-id="gente-14">
+          </picture>
+        </div>
+        <figcaption>gente-14</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-15" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-15-t.webp">
+            <img src="galeria/img/gente-15-t.jpg" alt="La gente — gente-15" loading="lazy" decoding="async" data-full="galeria/img/gente-15-l" data-id="gente-15">
+          </picture>
+        </div>
+        <figcaption>gente-15</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-16" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-16-t.webp">
+            <img src="galeria/img/gente-16-t.jpg" alt="La gente — gente-16" loading="lazy" decoding="async" data-full="galeria/img/gente-16-l" data-id="gente-16">
+          </picture>
+        </div>
+        <figcaption>gente-16</figcaption>
+      </figure>
+      <figure class="card" data-id="gente-17" data-cat="gente">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/gente-17-t.webp">
+            <img src="galeria/img/gente-17-t.jpg" alt="La gente — gente-17" loading="lazy" decoding="async" data-full="galeria/img/gente-17-l" data-id="gente-17">
+          </picture>
+        </div>
+        <figcaption>gente-17</figcaption>
+      </figure></div>
+    </section>
+    <section class="cat" data-cat="oficio">
+      <h2>El oficio <span class="count">11</span></h2>
+      <div class="grid">
+      <figure class="card" data-id="oficio-01" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-01-t.webp">
+            <img src="galeria/img/oficio-01-t.jpg" alt="El oficio — oficio-01" loading="lazy" decoding="async" data-full="galeria/img/oficio-01-l" data-id="oficio-01">
+          </picture>
+        </div>
+        <figcaption>oficio-01</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-02" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-02-t.webp">
+            <img src="galeria/img/oficio-02-t.jpg" alt="El oficio — oficio-02" loading="lazy" decoding="async" data-full="galeria/img/oficio-02-l" data-id="oficio-02">
+          </picture>
+        </div>
+        <figcaption>oficio-02</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-03" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-03-t.webp">
+            <img src="galeria/img/oficio-03-t.jpg" alt="El oficio — oficio-03" loading="lazy" decoding="async" data-full="galeria/img/oficio-03-l" data-id="oficio-03">
+          </picture>
+        </div>
+        <figcaption>oficio-03</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-04" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-04-t.webp">
+            <img src="galeria/img/oficio-04-t.jpg" alt="El oficio — oficio-04" loading="lazy" decoding="async" data-full="galeria/img/oficio-04-l" data-id="oficio-04">
+          </picture>
+        </div>
+        <figcaption>oficio-04</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-05" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-05-t.webp">
+            <img src="galeria/img/oficio-05-t.jpg" alt="El oficio — oficio-05" loading="lazy" decoding="async" data-full="galeria/img/oficio-05-l" data-id="oficio-05">
+          </picture>
+        </div>
+        <figcaption>oficio-05</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-06" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-06-t.webp">
+            <img src="galeria/img/oficio-06-t.jpg" alt="El oficio — oficio-06" loading="lazy" decoding="async" data-full="galeria/img/oficio-06-l" data-id="oficio-06">
+          </picture>
+        </div>
+        <figcaption>oficio-06</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-07" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-07-t.webp">
+            <img src="galeria/img/oficio-07-t.jpg" alt="El oficio — oficio-07" loading="lazy" decoding="async" data-full="galeria/img/oficio-07-l" data-id="oficio-07">
+          </picture>
+        </div>
+        <figcaption>oficio-07</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-08" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-08-t.webp">
+            <img src="galeria/img/oficio-08-t.jpg" alt="El oficio — oficio-08" loading="lazy" decoding="async" data-full="galeria/img/oficio-08-l" data-id="oficio-08">
+          </picture>
+        </div>
+        <figcaption>oficio-08</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-09" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-09-t.webp">
+            <img src="galeria/img/oficio-09-t.jpg" alt="El oficio — oficio-09" loading="lazy" decoding="async" data-full="galeria/img/oficio-09-l" data-id="oficio-09">
+          </picture>
+        </div>
+        <figcaption>oficio-09</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-10" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-10-t.webp">
+            <img src="galeria/img/oficio-10-t.jpg" alt="El oficio — oficio-10" loading="lazy" decoding="async" data-full="galeria/img/oficio-10-l" data-id="oficio-10">
+          </picture>
+        </div>
+        <figcaption>oficio-10</figcaption>
+      </figure>
+      <figure class="card" data-id="oficio-11" data-cat="oficio">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/oficio-11-t.webp">
+            <img src="galeria/img/oficio-11-t.jpg" alt="El oficio — oficio-11" loading="lazy" decoding="async" data-full="galeria/img/oficio-11-l" data-id="oficio-11">
+          </picture>
+        </div>
+        <figcaption>oficio-11</figcaption>
+      </figure></div>
+    </section>
+    <section class="cat" data-cat="detalle">
+      <h2>El detalle <span class="count">20</span></h2>
+      <div class="grid">
+      <figure class="card" data-id="detalle-01" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-01-t.webp">
+            <img src="galeria/img/detalle-01-t.jpg" alt="El detalle — detalle-01" loading="lazy" decoding="async" data-full="galeria/img/detalle-01-l" data-id="detalle-01">
+          </picture>
+        </div>
+        <figcaption>detalle-01</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-02" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-02-t.webp">
+            <img src="galeria/img/detalle-02-t.jpg" alt="El detalle — detalle-02" loading="lazy" decoding="async" data-full="galeria/img/detalle-02-l" data-id="detalle-02">
+          </picture>
+        </div>
+        <figcaption>detalle-02</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-03" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-03-t.webp">
+            <img src="galeria/img/detalle-03-t.jpg" alt="El detalle — detalle-03" loading="lazy" decoding="async" data-full="galeria/img/detalle-03-l" data-id="detalle-03">
+          </picture>
+        </div>
+        <figcaption>detalle-03</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-04" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-04-t.webp">
+            <img src="galeria/img/detalle-04-t.jpg" alt="El detalle — detalle-04" loading="lazy" decoding="async" data-full="galeria/img/detalle-04-l" data-id="detalle-04">
+          </picture>
+        </div>
+        <figcaption>detalle-04</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-05" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-05-t.webp">
+            <img src="galeria/img/detalle-05-t.jpg" alt="El detalle — detalle-05" loading="lazy" decoding="async" data-full="galeria/img/detalle-05-l" data-id="detalle-05">
+          </picture>
+        </div>
+        <figcaption>detalle-05</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-06" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-06-t.webp">
+            <img src="galeria/img/detalle-06-t.jpg" alt="El detalle — detalle-06" loading="lazy" decoding="async" data-full="galeria/img/detalle-06-l" data-id="detalle-06">
+          </picture>
+        </div>
+        <figcaption>detalle-06</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-07" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-07-t.webp">
+            <img src="galeria/img/detalle-07-t.jpg" alt="El detalle — detalle-07" loading="lazy" decoding="async" data-full="galeria/img/detalle-07-l" data-id="detalle-07">
+          </picture>
+        </div>
+        <figcaption>detalle-07</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-08" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-08-t.webp">
+            <img src="galeria/img/detalle-08-t.jpg" alt="El detalle — detalle-08" loading="lazy" decoding="async" data-full="galeria/img/detalle-08-l" data-id="detalle-08">
+          </picture>
+        </div>
+        <figcaption>detalle-08</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-09" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-09-t.webp">
+            <img src="galeria/img/detalle-09-t.jpg" alt="El detalle — detalle-09" loading="lazy" decoding="async" data-full="galeria/img/detalle-09-l" data-id="detalle-09">
+          </picture>
+        </div>
+        <figcaption>detalle-09</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-10" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-10-t.webp">
+            <img src="galeria/img/detalle-10-t.jpg" alt="El detalle — detalle-10" loading="lazy" decoding="async" data-full="galeria/img/detalle-10-l" data-id="detalle-10">
+          </picture>
+        </div>
+        <figcaption>detalle-10</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-11" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-11-t.webp">
+            <img src="galeria/img/detalle-11-t.jpg" alt="El detalle — detalle-11" loading="lazy" decoding="async" data-full="galeria/img/detalle-11-l" data-id="detalle-11">
+          </picture>
+        </div>
+        <figcaption>detalle-11</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-12" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-12-t.webp">
+            <img src="galeria/img/detalle-12-t.jpg" alt="El detalle — detalle-12" loading="lazy" decoding="async" data-full="galeria/img/detalle-12-l" data-id="detalle-12">
+          </picture>
+        </div>
+        <figcaption>detalle-12</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-13" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-13-t.webp">
+            <img src="galeria/img/detalle-13-t.jpg" alt="El detalle — detalle-13" loading="lazy" decoding="async" data-full="galeria/img/detalle-13-l" data-id="detalle-13">
+          </picture>
+        </div>
+        <figcaption>detalle-13</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-14" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-14-t.webp">
+            <img src="galeria/img/detalle-14-t.jpg" alt="El detalle — detalle-14" loading="lazy" decoding="async" data-full="galeria/img/detalle-14-l" data-id="detalle-14">
+          </picture>
+        </div>
+        <figcaption>detalle-14</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-15" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-15-t.webp">
+            <img src="galeria/img/detalle-15-t.jpg" alt="El detalle — detalle-15" loading="lazy" decoding="async" data-full="galeria/img/detalle-15-l" data-id="detalle-15">
+          </picture>
+        </div>
+        <figcaption>detalle-15</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-16" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-16-t.webp">
+            <img src="galeria/img/detalle-16-t.jpg" alt="El detalle — detalle-16" loading="lazy" decoding="async" data-full="galeria/img/detalle-16-l" data-id="detalle-16">
+          </picture>
+        </div>
+        <figcaption>detalle-16</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-17" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-17-t.webp">
+            <img src="galeria/img/detalle-17-t.jpg" alt="El detalle — detalle-17" loading="lazy" decoding="async" data-full="galeria/img/detalle-17-l" data-id="detalle-17">
+          </picture>
+        </div>
+        <figcaption>detalle-17</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-18" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-18-t.webp">
+            <img src="galeria/img/detalle-18-t.jpg" alt="El detalle — detalle-18" loading="lazy" decoding="async" data-full="galeria/img/detalle-18-l" data-id="detalle-18">
+          </picture>
+        </div>
+        <figcaption>detalle-18</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-19" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-19-t.webp">
+            <img src="galeria/img/detalle-19-t.jpg" alt="El detalle — detalle-19" loading="lazy" decoding="async" data-full="galeria/img/detalle-19-l" data-id="detalle-19">
+          </picture>
+        </div>
+        <figcaption>detalle-19</figcaption>
+      </figure>
+      <figure class="card" data-id="detalle-20" data-cat="detalle">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/detalle-20-t.webp">
+            <img src="galeria/img/detalle-20-t.jpg" alt="El detalle — detalle-20" loading="lazy" decoding="async" data-full="galeria/img/detalle-20-l" data-id="detalle-20">
+          </picture>
+        </div>
+        <figcaption>detalle-20</figcaption>
+      </figure></div>
+    </section>
+    <section class="cat" data-cat="ritual">
+      <h2>El ritual y el resultado <span class="count">20</span></h2>
+      <div class="grid">
+      <figure class="card" data-id="ritual-01" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-01-t.webp">
+            <img src="galeria/img/ritual-01-t.jpg" alt="El ritual y el resultado — ritual-01" loading="lazy" decoding="async" data-full="galeria/img/ritual-01-l" data-id="ritual-01">
+          </picture>
+        </div>
+        <figcaption>ritual-01</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-02" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-02-t.webp">
+            <img src="galeria/img/ritual-02-t.jpg" alt="El ritual y el resultado — ritual-02" loading="lazy" decoding="async" data-full="galeria/img/ritual-02-l" data-id="ritual-02">
+          </picture>
+        </div>
+        <figcaption>ritual-02</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-03" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-03-t.webp">
+            <img src="galeria/img/ritual-03-t.jpg" alt="El ritual y el resultado — ritual-03" loading="lazy" decoding="async" data-full="galeria/img/ritual-03-l" data-id="ritual-03">
+          </picture>
+        </div>
+        <figcaption>ritual-03</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-04" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-04-t.webp">
+            <img src="galeria/img/ritual-04-t.jpg" alt="El ritual y el resultado — ritual-04" loading="lazy" decoding="async" data-full="galeria/img/ritual-04-l" data-id="ritual-04">
+          </picture>
+        </div>
+        <figcaption>ritual-04</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-05" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-05-t.webp">
+            <img src="galeria/img/ritual-05-t.jpg" alt="El ritual y el resultado — ritual-05" loading="lazy" decoding="async" data-full="galeria/img/ritual-05-l" data-id="ritual-05">
+          </picture>
+        </div>
+        <figcaption>ritual-05</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-06" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-06-t.webp">
+            <img src="galeria/img/ritual-06-t.jpg" alt="El ritual y el resultado — ritual-06" loading="lazy" decoding="async" data-full="galeria/img/ritual-06-l" data-id="ritual-06">
+          </picture>
+        </div>
+        <figcaption>ritual-06</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-07" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-07-t.webp">
+            <img src="galeria/img/ritual-07-t.jpg" alt="El ritual y el resultado — ritual-07" loading="lazy" decoding="async" data-full="galeria/img/ritual-07-l" data-id="ritual-07">
+          </picture>
+        </div>
+        <figcaption>ritual-07</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-08" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-08-t.webp">
+            <img src="galeria/img/ritual-08-t.jpg" alt="El ritual y el resultado — ritual-08" loading="lazy" decoding="async" data-full="galeria/img/ritual-08-l" data-id="ritual-08">
+          </picture>
+        </div>
+        <figcaption>ritual-08</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-09" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-09-t.webp">
+            <img src="galeria/img/ritual-09-t.jpg" alt="El ritual y el resultado — ritual-09" loading="lazy" decoding="async" data-full="galeria/img/ritual-09-l" data-id="ritual-09">
+          </picture>
+        </div>
+        <figcaption>ritual-09</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-10" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-10-t.webp">
+            <img src="galeria/img/ritual-10-t.jpg" alt="El ritual y el resultado — ritual-10" loading="lazy" decoding="async" data-full="galeria/img/ritual-10-l" data-id="ritual-10">
+          </picture>
+        </div>
+        <figcaption>ritual-10</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-11" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-11-t.webp">
+            <img src="galeria/img/ritual-11-t.jpg" alt="El ritual y el resultado — ritual-11" loading="lazy" decoding="async" data-full="galeria/img/ritual-11-l" data-id="ritual-11">
+          </picture>
+        </div>
+        <figcaption>ritual-11</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-12" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-12-t.webp">
+            <img src="galeria/img/ritual-12-t.jpg" alt="El ritual y el resultado — ritual-12" loading="lazy" decoding="async" data-full="galeria/img/ritual-12-l" data-id="ritual-12">
+          </picture>
+        </div>
+        <figcaption>ritual-12</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-13" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-13-t.webp">
+            <img src="galeria/img/ritual-13-t.jpg" alt="El ritual y el resultado — ritual-13" loading="lazy" decoding="async" data-full="galeria/img/ritual-13-l" data-id="ritual-13">
+          </picture>
+        </div>
+        <figcaption>ritual-13</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-14" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-14-t.webp">
+            <img src="galeria/img/ritual-14-t.jpg" alt="El ritual y el resultado — ritual-14" loading="lazy" decoding="async" data-full="galeria/img/ritual-14-l" data-id="ritual-14">
+          </picture>
+        </div>
+        <figcaption>ritual-14</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-15" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-15-t.webp">
+            <img src="galeria/img/ritual-15-t.jpg" alt="El ritual y el resultado — ritual-15" loading="lazy" decoding="async" data-full="galeria/img/ritual-15-l" data-id="ritual-15">
+          </picture>
+        </div>
+        <figcaption>ritual-15</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-16" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-16-t.webp">
+            <img src="galeria/img/ritual-16-t.jpg" alt="El ritual y el resultado — ritual-16" loading="lazy" decoding="async" data-full="galeria/img/ritual-16-l" data-id="ritual-16">
+          </picture>
+        </div>
+        <figcaption>ritual-16</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-17" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-17-t.webp">
+            <img src="galeria/img/ritual-17-t.jpg" alt="El ritual y el resultado — ritual-17" loading="lazy" decoding="async" data-full="galeria/img/ritual-17-l" data-id="ritual-17">
+          </picture>
+        </div>
+        <figcaption>ritual-17</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-18" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-18-t.webp">
+            <img src="galeria/img/ritual-18-t.jpg" alt="El ritual y el resultado — ritual-18" loading="lazy" decoding="async" data-full="galeria/img/ritual-18-l" data-id="ritual-18">
+          </picture>
+        </div>
+        <figcaption>ritual-18</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-19" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame landscape">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-19-t.webp">
+            <img src="galeria/img/ritual-19-t.jpg" alt="El ritual y el resultado — ritual-19" loading="lazy" decoding="async" data-full="galeria/img/ritual-19-l" data-id="ritual-19">
+          </picture>
+        </div>
+        <figcaption>ritual-19</figcaption>
+      </figure>
+      <figure class="card" data-id="ritual-20" data-cat="ritual">
+        <button class="fav" type="button" aria-label="Marcar favorita" title="Favorita"></button>
+        <div class="frame portrait">
+          <picture>
+            <source type="image/webp" srcset="galeria/img/ritual-20-t.webp">
+            <img src="galeria/img/ritual-20-t.jpg" alt="El ritual y el resultado — ritual-20" loading="lazy" decoding="async" data-full="galeria/img/ritual-20-l" data-id="ritual-20">
+          </picture>
+        </div>
+        <figcaption>ritual-20</figcaption>
+      </figure></div>
+    </section></main>
+
+<div class="lb" id="lb">
+  <button class="x" id="lbx" aria-label="Cerrar">&times;</button>
+  <button class="nav prev" id="lbprev" aria-label="Anterior">&#8249;</button>
+  <img id="lbimg" src="" alt="">
+  <button class="nav next" id="lbnext" aria-label="Siguiente">&#8250;</button>
+  <button class="favbig" id="lbfav" type="button">\u2661 Favorita</button>
+</div>
+
+<script>
+const DATA=[{"id":"local-01","cat":"local","catLabel":"El local","file":"DSC00020.jpg","orient":"portrait"},{"id":"local-02","cat":"local","catLabel":"El local","file":"DSC00021.jpg","orient":"portrait"},{"id":"local-03","cat":"local","catLabel":"El local","file":"DSC00032.jpg","orient":"landscape"},{"id":"local-04","cat":"local","catLabel":"El local","file":"DSC00049.jpg","orient":"landscape"},{"id":"local-05","cat":"local","catLabel":"El local","file":"DSC00176.jpg","orient":"portrait"},{"id":"local-06","cat":"local","catLabel":"El local","file":"DSC00178.jpg","orient":"portrait"},{"id":"local-07","cat":"local","catLabel":"El local","file":"DSC00359.jpg","orient":"portrait"},{"id":"local-08","cat":"local","catLabel":"El local","file":"DSC00387.jpg","orient":"landscape"},{"id":"local-09","cat":"local","catLabel":"El local","file":"DSC00414.jpg","orient":"portrait"},{"id":"local-10","cat":"local","catLabel":"El local","file":"DSC00415.jpg","orient":"portrait"},{"id":"local-11","cat":"local","catLabel":"El local","file":"DSC00484.jpg","orient":"portrait"},{"id":"local-12","cat":"local","catLabel":"El local","file":"DSC00521.jpg","orient":"portrait"},{"id":"local-13","cat":"local","catLabel":"El local","file":"DSC05165.jpg","orient":"portrait"},{"id":"local-14","cat":"local","catLabel":"El local","file":"DSC05322.jpg","orient":"portrait"},{"id":"local-15","cat":"local","catLabel":"El local","file":"DSC06762.jpg","orient":"portrait"},{"id":"local-16","cat":"local","catLabel":"El local","file":"DSC08070.jpg","orient":"portrait"},{"id":"local-17","cat":"local","catLabel":"El local","file":"DSC09721.jpg","orient":"portrait"},{"id":"gente-01","cat":"gente","catLabel":"La gente","file":"DSC00169.jpg","orient":"portrait"},{"id":"gente-02","cat":"gente","catLabel":"La gente","file":"DSC00435.jpg","orient":"portrait"},{"id":"gente-03","cat":"gente","catLabel":"La gente","file":"DSC05148.jpg","orient":"portrait"},{"id":"gente-04","cat":"gente","catLabel":"La gente","file":"DSC05154.jpg","orient":"portrait"},{"id":"gente-05","cat":"gente","catLabel":"La gente","file":"DSC05169.jpg","orient":"portrait"},{"id":"gente-06","cat":"gente","catLabel":"La gente","file":"DSC05191.jpg","orient":"portrait"},{"id":"gente-07","cat":"gente","catLabel":"La gente","file":"DSC05214.jpg","orient":"portrait"},{"id":"gente-08","cat":"gente","catLabel":"La gente","file":"DSC05244.jpg","orient":"portrait"},{"id":"gente-09","cat":"gente","catLabel":"La gente","file":"DSC05306.jpg","orient":"portrait"},{"id":"gente-10","cat":"gente","catLabel":"La gente","file":"DSC05578.jpg","orient":"portrait"},{"id":"gente-11","cat":"gente","catLabel":"La gente","file":"DSC05584.jpg","orient":"portrait"},{"id":"gente-12","cat":"gente","catLabel":"La gente","file":"DSC05772.jpg","orient":"portrait"},{"id":"gente-13","cat":"gente","catLabel":"La gente","file":"DSC05791.jpg","orient":"portrait"},{"id":"gente-14","cat":"gente","catLabel":"La gente","file":"DSC05946.jpg","orient":"portrait"},{"id":"gente-15","cat":"gente","catLabel":"La gente","file":"DSC06847.jpg","orient":"portrait"},{"id":"gente-16","cat":"gente","catLabel":"La gente","file":"DSC07819.jpg","orient":"portrait"},{"id":"gente-17","cat":"gente","catLabel":"La gente","file":"DSC07990.jpg","orient":"portrait"},{"id":"oficio-01","cat":"oficio","catLabel":"El oficio","file":"DSC05428.jpg","orient":"portrait"},{"id":"oficio-02","cat":"oficio","catLabel":"El oficio","file":"DSC05528.jpg","orient":"portrait"},{"id":"oficio-03","cat":"oficio","catLabel":"El oficio","file":"DSC05896.jpg","orient":"portrait"},{"id":"oficio-04","cat":"oficio","catLabel":"El oficio","file":"DSC06044.jpg","orient":"portrait"},{"id":"oficio-05","cat":"oficio","catLabel":"El oficio","file":"DSC06107.jpg","orient":"portrait"},{"id":"oficio-06","cat":"oficio","catLabel":"El oficio","file":"DSC06244.jpg","orient":"portrait"},{"id":"oficio-07","cat":"oficio","catLabel":"El oficio","file":"DSC06275.jpg","orient":"portrait"},{"id":"oficio-08","cat":"oficio","catLabel":"El oficio","file":"DSC06845.jpg","orient":"portrait"},{"id":"oficio-09","cat":"oficio","catLabel":"El oficio","file":"DSC06932.jpg","orient":"landscape"},{"id":"oficio-10","cat":"oficio","catLabel":"El oficio","file":"DSC07854.jpg","orient":"portrait"},{"id":"oficio-11","cat":"oficio","catLabel":"El oficio","file":"DSC09855.jpg","orient":"portrait"},{"id":"detalle-01","cat":"detalle","catLabel":"El detalle","file":"DSC00191.jpg","orient":"portrait"},{"id":"detalle-02","cat":"detalle","catLabel":"El detalle","file":"DSC00252.jpg","orient":"portrait"},{"id":"detalle-03","cat":"detalle","catLabel":"El detalle","file":"DSC00264.jpg","orient":"portrait"},{"id":"detalle-04","cat":"detalle","catLabel":"El detalle","file":"DSC00287.jpg","orient":"portrait"},{"id":"detalle-05","cat":"detalle","catLabel":"El detalle","file":"DSC00335.jpg","orient":"portrait"},{"id":"detalle-06","cat":"detalle","catLabel":"El detalle","file":"DSC00350.jpg","orient":"portrait"},{"id":"detalle-07","cat":"detalle","catLabel":"El detalle","file":"DSC00356.jpg","orient":"portrait"},{"id":"detalle-08","cat":"detalle","catLabel":"El detalle","file":"DSC00406.jpg","orient":"portrait"},{"id":"detalle-09","cat":"detalle","catLabel":"El detalle","file":"DSC00493.jpg","orient":"portrait"},{"id":"detalle-10","cat":"detalle","catLabel":"El detalle","file":"DSC00498.jpg","orient":"landscape"},{"id":"detalle-11","cat":"detalle","catLabel":"El detalle","file":"DSC00650.jpg","orient":"portrait"},{"id":"detalle-12","cat":"detalle","catLabel":"El detalle","file":"DSC00738.jpg","orient":"portrait"},{"id":"detalle-13","cat":"detalle","catLabel":"El detalle","file":"DSC00802.jpg","orient":"portrait"},{"id":"detalle-14","cat":"detalle","catLabel":"El detalle","file":"DSC00893.jpg","orient":"portrait"},{"id":"detalle-15","cat":"detalle","catLabel":"El detalle","file":"DSC00916.jpg","orient":"portrait"},{"id":"detalle-16","cat":"detalle","catLabel":"El detalle","file":"DSC00997.jpg","orient":"portrait"},{"id":"detalle-17","cat":"detalle","catLabel":"El detalle","file":"DSC01046.jpg","orient":"portrait"},{"id":"detalle-18","cat":"detalle","catLabel":"El detalle","file":"DSC01144.jpg","orient":"portrait"},{"id":"detalle-19","cat":"detalle","catLabel":"El detalle","file":"DSC05293.jpg","orient":"portrait"},{"id":"detalle-20","cat":"detalle","catLabel":"El detalle","file":"DSC07903.jpg","orient":"portrait"},{"id":"ritual-01","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC00687.jpg","orient":"portrait"},{"id":"ritual-02","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC00730.jpg","orient":"portrait"},{"id":"ritual-03","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC00851.jpg","orient":"portrait"},{"id":"ritual-04","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC01098.jpg","orient":"portrait"},{"id":"ritual-05","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC05456.jpg","orient":"portrait"},{"id":"ritual-06","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC05480.jpg","orient":"portrait"},{"id":"ritual-07","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC05498.jpg","orient":"portrait"},{"id":"ritual-08","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06398.jpg","orient":"landscape"},{"id":"ritual-09","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06495.jpg","orient":"landscape"},{"id":"ritual-10","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06575.jpg","orient":"landscape"},{"id":"ritual-11","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06625.jpg","orient":"portrait"},{"id":"ritual-12","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06741.jpg","orient":"portrait"},{"id":"ritual-13","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06775.jpg","orient":"portrait"},{"id":"ritual-14","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC06781.jpg","orient":"portrait"},{"id":"ritual-15","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC07179.jpg","orient":"portrait"},{"id":"ritual-16","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC07492.jpg","orient":"portrait"},{"id":"ritual-17","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC07673.jpg","orient":"portrait"},{"id":"ritual-18","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC08088.jpg","orient":"portrait"},{"id":"ritual-19","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC08318.jpg","orient":"landscape"},{"id":"ritual-20","cat":"ritual","catLabel":"El ritual y el resultado","file":"DSC09922.jpg","orient":"portrait"}];
+const KEY='structure_galeria_favs_v1';
+let favs=new Set();
+try{favs=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify([...favs]));}catch(e){}}
+function refresh(){
+  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('is-fav',favs.has(c.dataset.id)));
+  document.getElementById('n').textContent=favs.size;
+}
+function toggle(id){ favs.has(id)?favs.delete(id):favs.add(id); save(); refresh(); if(lbId===id)syncLbFav(); }
+document.querySelectorAll('.fav').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();toggle(b.closest('.card').dataset.id);}));
+
+// lightbox
+let lbId=null,order=DATA.map(d=>d.id);
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbfav=document.getElementById('lbfav');
+function openLb(id){lbId=id;const img=new Image();img.onload=()=>{lbimg.src=img.src;};img.src='galeria/img/'+id+'-l.webp';lbimg.src='galeria/img/'+id+'-l.jpg';lb.classList.add('open');syncLbFav();}
+function syncLbFav(){const on=favs.has(lbId);lbfav.classList.toggle('on',on);lbfav.innerHTML=(on?'\u2665':'\u2661')+' Favorita';}
+function step(d){let i=order.indexOf(lbId);i=(i+d+order.length)%order.length;openLb(order[i]);}
+document.querySelectorAll('.frame img').forEach(im=>im.parentElement.parentElement.addEventListener('click',()=>openLb(im.dataset.id)));
+document.getElementById('lbx').onclick=()=>lb.classList.remove('open');
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+document.getElementById('lbprev').onclick=e=>{e.stopPropagation();step(-1);};
+document.getElementById('lbnext').onclick=e=>{e.stopPropagation();step(1);};
+lbfav.onclick=()=>toggle(lbId);
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);if(e.key==='f'||e.key==='F')toggle(lbId);});
+
+// toolbar
+document.getElementById('onlyfav').addEventListener('click',function(){document.body.classList.toggle('only-fav');this.classList.toggle('on');});
+document.getElementById('clear').addEventListener('click',()=>{if(confirm('¿Quitar todas las favoritas?')){favs.clear();save();refresh();}});
+function buildList(){
+  const chosen=DATA.filter(d=>favs.has(d.id));
+  let t='SELECCIÓN GALERÍA STRUCTURE — '+chosen.length+' fotos\n'+new Date().toLocaleString()+'\n\n';
+  [['local','El local'],['gente','La gente'],['oficio','El oficio'],['detalle','El detalle'],['ritual','El ritual y el resultado']].forEach(([s,l])=>{
+    const sub=chosen.filter(d=>d.cat===s); if(!sub.length)return;
+    t+='== '+l+' ('+sub.length+') ==\n'; sub.forEach(d=>t+='  '+d.id+'  ·  '+d.file+'\n'); t+='\n';
+  });
+  return t;
+}
+document.getElementById('export').addEventListener('click',()=>{
+  if(!favs.size)return alert('No hay favoritas aún.');
+  const blob=new Blob([buildList()],{type:'text/plain'});const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='seleccion-galeria-structure.txt';a.click();
+});
+document.getElementById('copy').addEventListener('click',async()=>{
+  if(!favs.size)return alert('No hay favoritas aún.');
+  try{await navigator.clipboard.writeText(buildList());document.getElementById('copy').textContent='¡Copiado!';setTimeout(()=>document.getElementById('copy').textContent='Copiar lista',1500);}catch(e){alert('No se pudo copiar.');}
+});
+refresh();
+</script>
+</body>
+</html>
